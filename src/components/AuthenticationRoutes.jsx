@@ -6,21 +6,23 @@ function AuthenticationRoutes({ children, ...rest }) {
   //Reemplazar por el método real
   const { auth } = useAuth();
 
+  const shouldRenderChildren = React.useCallback(({ location }) =>
+    !auth ? (
+      children
+    ) : (
+      <Redirect
+        to={{
+          pathname: '/',
+          state: { from: location },
+        }}
+      />
+    ), [auth, children])
+
+
   return (
     <Route
       {...rest}
-      render={({ location }) =>
-        !auth ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/',
-              state: { from: location },
-            }}
-          />
-        )
-      }
+      render={shouldRenderChildren}
     />
   );
 }

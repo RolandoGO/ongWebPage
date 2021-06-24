@@ -14,19 +14,21 @@ function NewsList() {
       </td>
     </tr>)
 
-  return <table class="table container">
-    <thead>
-      <tr>
-        <th scope="col">name</th>
-        <th scope="col">image</th>
-        <th scope="col">createdAt</th>
-        <th className='text-center' scope="col" id="actions">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      {rows}
-    </tbody>
-  </table>;
+  return <div className="table-responsive">
+    <table className="table container">
+      <thead>
+        <tr>
+          <th scope="col">name</th>
+          <th scope="col">image</th>
+          <th scope="col">createdAt</th>
+          <th className='text-center' scope="col" id="actions">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows}
+      </tbody>
+    </table>
+  </div>;
 }
 
 export default NewsList;

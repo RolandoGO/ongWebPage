@@ -41,7 +41,7 @@ function RegistrationForm() {
             <Field name="password" type="password" className={`form-control ${password && "is-invalid"}`} />
             <ErrorMessage name="password" render={ErrorTooltip} />
           </div>
-          <button type="submit" className="btn btn-primary btn-lg mx-auto d-block">Registarse</button>
+          <button type="submit" className="btn btn-primary btn-lg mx-auto d-block mt-5">Registarse</button>
         </Form>}
     </Formik>
   );

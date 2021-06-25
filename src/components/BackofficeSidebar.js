@@ -1,10 +1,20 @@
 import React from "react";
 import "../styles/backofficeSidebar.css";
 
+const paths = {
+  //Replace paths for real backoffice sections later
+  inicio: "/",
+  nosotros: "/nosotros",
+  actividades: "/actividades",
+  novedades: "/novedades",
+  testimonios: "/testimonios",
+  contacto: "/contacto",
+  contribuyente: "/contribuyente",
+};
+
 function BackofficeSidebar(props) {
   function openSidebar() {
     let show = props.show;
-
     if (show) {
       return "sidebar sidebar-open shadow";
     } else {
@@ -12,7 +22,23 @@ function BackofficeSidebar(props) {
     }
   }
 
-  let sidebarStatus = openSidebar();
+  function getLinks() {
+    //Replace <a> for <Link to="/path"> later
+    const listItems = Object.keys(paths).map((key, index) => (
+      <li className="my-2 pt-3" key={index + key}>
+        <a
+          className="text-capitalize text-decoration-none fw-bold fs-5 p-2 d-block"
+          href={paths[key]}
+        >
+          {key}
+        </a>
+      </li>
+    ));
+    return <ul className="mt-3">{listItems}</ul>;
+  }
+
+  const listLinks = getLinks();
+  const sidebarStatus = openSidebar();
 
   return (
     <div id="backofficeSidebar" className={sidebarStatus}>
@@ -25,58 +51,7 @@ function BackofficeSidebar(props) {
           onClick={props.handleClose}
         ></button>
       </div>
-      <div className="mx-4 mt-2 p-2">
-        <ul className="mt-3 px-2">
-          <li className="my-4 pt-3">
-            <a
-              className="text-decoration-none fw-bold fs-5 p-2 d-block"
-              href="/#"
-            >
-              Home
-            </a>
-          </li>
-          <li className="my-4">
-            <a
-              className="text-decoration-none fw-bold fs-5 p-2 d-block"
-              href="/#"
-            >
-              Nosotros
-            </a>
-          </li>
-          <li className="my-4">
-            <a
-              className="text-decoration-none fw-bold fs-5 p-2 d-block"
-              href="/#"
-            >
-              Actividades
-            </a>
-          </li>
-          <li className="my-4">
-            <a
-              className="text-decoration-none fw-bold fs-5 p-2 d-block"
-              href="/#"
-            >
-              Contribuyente
-            </a>
-          </li>
-          <li className="my-4">
-            <a
-              className="text-decoration-none fw-bold fs-5 p-2 d-block"
-              href="/#"
-            >
-              Contacto
-            </a>
-          </li>
-          <li className="my-4">
-            <a
-              className="text-decoration-none fw-bold fs-5 p-2 d-block"
-              href="/#"
-            >
-              Novedades
-            </a>
-          </li>
-        </ul>
-      </div>
+      <div className="mx-4 mt-2">{listLinks}</div>
     </div>
   );
 }

@@ -19,7 +19,8 @@ function RegistrationForm() {
       validationSchema={validationSchema}
       onSubmit={(values) => console.log(values)}>
       {({ errors: { firstName, lastName, email, password } }) =>
-        <Form className='container py-3 col-md-6 col-lg-4'>
+        <Form className="container py-3 col-md-6 col-lg-4">
+          <h1 className="fw-bold p-1 mb-4">Formulario de registro</h1>
           <div className="mb-3 position-relative">
             <label htmlFor="firstName" className="formLabel">Nombre</label>
             <Field name="firstName" type="text" className={`form-control ${firstName && "is-invalid"}`} />

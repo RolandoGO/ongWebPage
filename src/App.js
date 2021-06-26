@@ -11,6 +11,21 @@ import Testimonios from "./Screens/Testimonios";
 
 
 function App() {
+
+  //Fake Token: this token will come from the localstorage once the user is authenticated.
+  const fakeToken = '837498123694819287412';
+  const setToken = () => {
+    localStorage.setItem('token', fakeToken);
+  };
+  setToken();
+
+
+  //Check if a token exists in localstorage
+  const token = localStorage.getItem('token');
+  if(token) {
+    console.log('authenticated user');
+  };
+
   return (
     <BrowserRouter>
       <Switch>

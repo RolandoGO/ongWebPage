@@ -1,0 +1,14 @@
+
+.navbar-backofice {
+    background-color: #E3817D;
+}
+
+.btn-sidebar {
+    background: transparent;
+    border: none;
+    transition: transform .2s;
+}
+
+.btn-sidebar:hover {
+    transform: scale(1.5); 
+  }

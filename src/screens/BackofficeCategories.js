@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import {Link} from "react-router-dom"
-import Backoffice_CategoriesListTable from '../components/Backoffice_CategoriesListTable'
+import BackofficeCategoriesListTable from '../components/BackofficeCategoriesListTable'
 
 export default function BackofficeCategories() {
 
@@ -49,7 +49,7 @@ export default function BackofficeCategories() {
         <div>
 
             {/* <Link to="/backoffice/categorías/create"/> */}
-            <Backoffice_CategoriesListTable props={propsObj}/>
+            <BackofficeCategoriesListTable props={propsObj}/>
 
         </div>
     )

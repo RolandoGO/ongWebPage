@@ -1,7 +1,7 @@
 import React from 'react'
 import deleteIcon from "../assets/delete-icon.svg"
 
-export default function Backoffice_CategoriesListTable({props}) {
+export default function BackofficeCategoriesListTable({props}) {
 
     const {handleDelete,handleEdit,data}=props
    

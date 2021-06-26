@@ -10,7 +10,6 @@ import Contribuye from "./Screens/Contribuye";
 import Testimonios from "./Screens/Testimonios";
 
 
-
 function App() {
   return (
     <BrowserRouter>

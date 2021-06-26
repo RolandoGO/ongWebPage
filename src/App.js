@@ -8,6 +8,7 @@ import Actividades from "./Screens/Actividades";
 import Contacto from "./Screens/Contacto";
 import Contribuye from "./Screens/Contribuye";
 import Testimonios from "./Screens/Testimonios";
+import { ActivitiesScreen } from "./Screens/ActivitiesScreen";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/" component={Testimonios} />
         <Route exact path="/" component={Contacto} />
         <Route exact path="/" component={Contribuye} />
+        <Route exact path="/backoffice/activities" component={ActivitiesScreen} />
       </Switch>
     </BrowserRouter>
   );

@@ -2,14 +2,15 @@ import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
-import SkeletonSetUp from './components/SkeletonSetUp';
+import SkeletonSetUp from "./components/SkeletonSetUp"
 
 
 function App() {
   return (
     <div className="App">
-     <SkeletonSetUp/>
-      {/* <header className="App-header">
+
+      <SkeletonSetUp active={true}></SkeletonSetUp>
+     <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
@@ -53,9 +54,11 @@ function App() {
             React Redux
           </a>
         </span>
-      </header> */}
+      </header>
     </div>
   );
 }
 
 export default App;
+
+      

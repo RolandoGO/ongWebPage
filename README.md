@@ -59,3 +59,9 @@ Default progress bar.
 | :-------- | :---------------- | :---------------------------------------------------------- |
 | `now`     | `number`          | Current value of progress                                   |
 | `variant` | `'indeterminate'` | Use indeterminate or query when there is no progress value. |
+
+## LoaderSpinner 
+
+Reusable Spinner component to visualize the information load.
+
+Using: https://www.npmjs.com/package/react-loader-spinner

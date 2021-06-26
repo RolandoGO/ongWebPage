@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const HandleLogin = (values) => {
-  axios
+export const HandleLogin = async (values) => {
+  await axios
     .post(
-      BaseUrl,
+      "https://demo5074840.mockable.io/form" ,
       {
         email: values.email,
         password: values.password,
@@ -23,11 +23,11 @@ export const HandleLogin = (values) => {
       }
     );
 };
-
-export const handleRegister = (values) => {
-  axios
+HandleLogin();
+export const handleRegister = async (values) => {
+ await axios
     .post(
-      BaseUrl,
+      " https://demo5074840.mockable.io/form " ,
       {
         name: values.name,
         surname: values.surname,

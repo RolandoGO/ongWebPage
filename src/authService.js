@@ -23,7 +23,7 @@ export const HandleLogin = async (values) => {
       }
     );
 };
-HandleLogin();
+
 export const handleRegister = async (values) => {
  await axios
     .post(

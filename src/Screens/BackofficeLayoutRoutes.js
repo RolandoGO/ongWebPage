@@ -13,7 +13,13 @@ export default function BackofficeLayoutRoutes() {
                  */}
             
                 <Switch>
-                    <Route path="/backoffice/news" exact render={()=><h1>News</h1>}/>
+                    <Route path="/backoffice" exact render={()=><h1>Backoffice</h1>}/>
+                    <Route path="/backoffice/actividades" exact render={()=><h1>Actividades</h1>}/>
+                    <Route path="/backoffice/nosotros" exact render={()=><h1>Nosotros</h1>}/>
+                    <Route path="/backoffice/novedades" exact render={()=><h1>Novedades</h1>}/>
+                    <Route path="/backoffice/testimonios" exact render={()=><h1>Testimonios</h1>}/>
+                    <Route path="/backoffice/contactos" exact render={()=><h1>Contactos</h1>}/>
+                    <Route path="/backoffice/contribuyentes" exact render={()=><h1>Contribuyentes</h1>}/>
                     <Route path="/backoffice/news/create" exact render={()=><h1>Create News</h1>}/>
                     <Route path="/notfound" exact render={()=><h1>Not Found</h1>}/>
                     <Redirect to="/notfound"/>

@@ -1,13 +1,14 @@
-import React, { useEffect,useState } from 'react'
+import React, { useCallback, useEffect,useState } from 'react'
 import {Link} from "react-router-dom"
-import BackofficeCategoriesListTable from '../components/BackofficeCategoriesListTable'
+import {BackofficeCategoriesListTable} from '../components/BackofficeCategoriesListTable'
 
 export default function BackofficeCategories() {
 
-//datos mokeados a la espera de los datos reales del endpoint
+//Mok data waiting for the response of the api endpoint
     const [data, setData]=useState([{name:"contactos", createdAt:"12:36:33",id:1},{name:"planes", createdAt:"12:36:33",id:2},{name:"educacion", createdAt:"12:36:33",id:3},{name:"alimentos", createdAt:"12:36:33",id:4}])
     
-//El use effect contiene el llamado al endpopint, faltaria la url correcta
+    
+//the use effect have the call to the endpoint, it needs the correct url.
     useEffect(()=>{
 
         //     const abortControl= new AbortController()
@@ -27,29 +28,33 @@ export default function BackofficeCategories() {
     },[])  
 
      
+     
 
-    function handleDelete(categorie){
-        console.log(categorie)
+    const handleDelete=useCallback((categorie)=>deleteCategorie(categorie),[data])
+
+    const handleEdit=useCallback((categorie)=>editCategorie(categorie),[data])
+
+    
+
+    function deleteCategorie(categorie){
+        console.log("delete"+ categorie.name)
 
     }
 
-    function handleEdit(categorie){
-        console.log(categorie)
+    function editCategorie(categorie){
+        console.log("edit"+ categorie.name)
+
     }
         
 
-    const propsObj={
-        handleDelete,
-        handleEdit,
-        data
-    }
    
    
   return (
         <div>
 
             {/* <Link to="/backoffice/categorías/create"/> */}
-            <BackofficeCategoriesListTable props={propsObj}/>
+           
+            <BackofficeCategoriesListTable data={data} handleEdit={handleEdit} handleDelete={handleDelete}/>
 
         </div>
     )

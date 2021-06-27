@@ -1,9 +1,10 @@
 import React from 'react'
 import deleteIcon from "../assets/delete-icon.svg"
 
-export default function BackofficeCategoriesListTable({props}) {
+export const BackofficeCategoriesListTable = React.memo((props)=> {
 
     const {handleDelete,handleEdit,data}=props
+    
    
     return (
         
@@ -17,6 +18,7 @@ export default function BackofficeCategoriesListTable({props}) {
                     </tr>
                 </thead>
                 <tbody>
+                    
                   {data.map(categories=>{
                        return(
                         <tr key={categories.id}>
@@ -32,6 +34,6 @@ export default function BackofficeCategoriesListTable({props}) {
             </table>
     )
 }
+)
 
-                        
                        

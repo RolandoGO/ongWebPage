@@ -25,6 +25,7 @@ function App() {
         <Route exact path="/" component={Contribuye} />
       </Switch>
     </BrowserRouter>
+    
   );
 }
 

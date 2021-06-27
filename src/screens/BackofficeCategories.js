@@ -35,7 +35,6 @@ export default function BackofficeCategories() {
     const handleEdit=useCallback((categorie)=>editCategorie(categorie),[data])
 
     
-
     function deleteCategorie(categorie){
         console.log("delete"+ categorie.name)
 

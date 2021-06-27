@@ -26,9 +26,7 @@ export default function BackofficeCategories() {
 
 
     },[])  
-
-     
-     
+    
 
     const handleDelete=useCallback((categorie)=>deleteCategorie(categorie),[data])
 
@@ -45,18 +43,18 @@ export default function BackofficeCategories() {
 
     }
         
+    return (
+            <div>
 
-   
-   
-  return (
-        <div>
+                {/* <Link to="/backoffice/categorías/create"/> */}
+            
+                <BackofficeCategoriesListTable data={data} handleEdit={handleEdit} handleDelete={handleDelete}/>
 
-            {/* <Link to="/backoffice/categorías/create"/> */}
-           
-            <BackofficeCategoriesListTable data={data} handleEdit={handleEdit} handleDelete={handleDelete}/>
-
-        </div>
+            </div>
     )
+   
+   
+  
 }
     
             
@@ -64,3 +62,6 @@ export default function BackofficeCategories() {
 
 
   
+     
+
+    

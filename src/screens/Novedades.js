@@ -1,7 +1,11 @@
-import React from "react";
+import React from 'react'
 
 function Novedades() {
-  return <div></div>;
+    return (
+        <div>
+            
+        </div>
+    )
 }
 
-export default Novedades;
+export default Novedades

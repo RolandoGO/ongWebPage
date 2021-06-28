@@ -1,7 +1,11 @@
-import React from "react";
+import React from 'react'
 
 function Nosotros() {
-  return <div></div>;
+    return (
+        <div>
+            
+        </div>
+    )
 }
 
-export default Nosotros;
+export default Nosotros

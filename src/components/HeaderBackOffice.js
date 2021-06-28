@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-
+import BackofficeSidebar from "./BackofficeSidebar";
 import Logo from "../assets/LOGO-SOMOSMAS.png";
 import iconMenu from "../assets/icon-menu.png";
 import "../styles/backOfficeStyles.css";
 
 export const HeaderBackOffice = () => {
-  const openSidebar = () => {
-    console.log("Open Sidebar");
-  };
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <Router>
       <header>
+        <BackofficeSidebar show={show} handleClose={handleClose} />
         <nav className="navbar navbar-light navbar-backofice">
           <div className="container-fluid">
             <div className="navbar-brand d-flex align-items-center">
@@ -22,7 +23,7 @@ export const HeaderBackOffice = () => {
                 height="60"
                 className="d-inline-block align-text-top"
               />
-              <button className="btn-sidebar" onClick={openSidebar}>
+              <button className="btn-sidebar" onClick={handleShow}>
                 <img
                   src={iconMenu}
                   alt="logo"

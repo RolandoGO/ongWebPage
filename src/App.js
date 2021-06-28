@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import Home from "./Screens/Home";
-// import Nosotros from "./Screens/Nosotros";
-// import Novedades from "./Screens/Novedades";
-// import Actividades from "./Screens/Actividades";
-// import Contacto from "./Screens/Contacto";
-// import Contribuye from "./Screens/Contribuye";
-// import Testimonios from "./Screens/Testimonios";
+import Home from "./screens/Home";
+// import Nosotros from "./screens/Nosotros";
+// import Novedades from "./screens/Novedades";
+// import Actividades from "./screens/Actividades";
+// import Contacto from "./screens/Contacto";
+// import Contribuye from "./screens/Contribuye";
+// import Testimonios from "./screens/Testimonios";
 
 
 const App = () => {

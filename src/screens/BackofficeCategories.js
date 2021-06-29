@@ -44,9 +44,12 @@ export default function BackofficeCategories() {
     }
         
     return (
-            <div>
+            <div className="container">
 
-                {/* <Link to="/backoffice/categorías/create"/> */}
+               <div className="d-flex justify-content-between w-50 mb-4" style={{margin:"auto"}}>
+               <Link to="/backoffice/categoríe/create">Create Categorie</Link>
+                <Link to="/backoffice/categoríe/edition">Edit Categorie</Link>
+               </div>
             
                 <BackofficeCategoriesListTable data={data} handleEdit={handleEdit} handleDelete={handleDelete}/>
 

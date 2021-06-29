@@ -4,8 +4,7 @@ import * as Yup from 'yup';
 import InputGroup from '../Components/InputGroup';
 import endsWithImageExtension from '../utils/endsWithImageExtension';
 
-function SlidesForm() {
-  const initialValues = { title: "", description: "", image: "", order: "" }
+function SlidesForm({ slide = { title: "", description: "", image: "", order: "" } }) {
   const validationSchema = Yup.object({
     title: Yup.string().required('El campo no puede estar vacío'),
     description: Yup.string().required('El campo no puede estar vacío'),
@@ -15,7 +14,7 @@ function SlidesForm() {
 
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={slide}
       validationSchema={validationSchema}
       onSubmit={(values) => console.log(values)}>
       {({ errors }) =>

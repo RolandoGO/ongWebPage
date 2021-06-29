@@ -3,6 +3,7 @@ import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Home from "./screens/Home";
 import Dashboard from "./screens/Dashboard"
+
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";
 // import Actividades from "./screens/Actividades";

@@ -1,6 +1,8 @@
 import * as React from 'react'
 
-function NewsList() {
+function NewsList({getNews,deleteNews,editNews}) {
+
+  
   const rows = fakeData.map(({ id, name, image, createdAt }) =>
     <tr key={id}>
       <td>{name}</td>
@@ -8,8 +10,8 @@ function NewsList() {
       <td>{createdAt}</td>
       <td>
         <div className="btn-group d-flex justify-content-center" role="group" aria-labelledby="actions">
-          <button type="button" className="btn flex-grow-0 btn-danger">Eliminar</button>
-          <button type="button" className="btn flex-grow-0 btn-outline-primary border-start-0">Editar</button>
+          <button onClick={deleteNews} type="button" className="btn flex-grow-0 btn-danger">Eliminar</button>
+          <button onClick={editNews} type="button" className="btn flex-grow-0 btn-outline-primary border-start-0">Editar</button>
         </div>
       </td>
     </tr>)

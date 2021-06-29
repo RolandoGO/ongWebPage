@@ -8,7 +8,7 @@ function SlidesForm({ slide = { title: "", description: "", image: "", order: ""
   const validationSchema = Yup.object({
     title: Yup.string().required('El campo no puede estar vacío'),
     description: Yup.string().required('El campo no puede estar vacío'),
-    image: Yup.string().ensure().url('Debe ser una url válida').test('urlEndsWithImage', 'La url debe apuntar a una imagen', endsWithImageExtension).required('Es necesario proporcionar una dirección de email'),
+    image: Yup.string().url('Debe ser una url válida').test('urlEndsWithImage', 'La url debe apuntar a una imagen', endsWithImageExtension).required('Es necesario proporcionar una dirección de email'),
     order: Yup.number().integer('El orden debe ser un número entero').positive('El orden debe ser un número mayor a 0').required('Debe proporcionar un orden.')
   })
 

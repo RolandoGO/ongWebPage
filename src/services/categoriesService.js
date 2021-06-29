@@ -14,8 +14,8 @@ export const createCategory = async (category) => {
 
 export const editCategories = async (id, category) => {
 	await axiosInstance.put(`/categories/${id}`, {
-		name: `${category.name}`,
-		description: `${category.description}`,
+		name: category._name,
+		description: category.description,
 	});
 };
 

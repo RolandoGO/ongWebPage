@@ -1,17 +1,8 @@
 import * as React from 'react'
-import AlertMessage from './AlertMessage';
+import confirmAndDelete from '../utils/confirmAndDelete';
+
 
 function NewsList() {
-  const handleDelete = (id) => {
-    AlertMessage('warning', 'Está a punto de eliminar una novedad',
-      'Una vez que lo haga no podrá deshacerlo').then(({ value }) => {
-        if (value) {
-          console.log('Novedad eliminada')
-          //deleteNews(id) -> this method should make a DELETE request to de API
-        }
-      })
-  }
-
   const rows = fakeData.map(({ id, name, image, createdAt }) =>
     <tr key={id}>
       <td>{name}</td>
@@ -19,7 +10,7 @@ function NewsList() {
       <td>{createdAt}</td>
       <td>
         <div className="btn-group d-flex justify-content-center" role="group" aria-labelledby="actions">
-          <button type="button" className="btn flex-grow-0 btn-danger" onClick={() => handleDelete(id)}>Eliminar</button>
+          <button type="button" className="btn flex-grow-0 btn-danger" onClick={() => confirmAndDelete(id)}>Eliminar</button>
           <button type="button" className="btn flex-grow-0 btn-outline-primary border-start-0">Editar</button>
         </div>
       </td>

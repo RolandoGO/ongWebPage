@@ -1,6 +1,6 @@
-import axiosIntance from "axios";
+import axiosInstance from './apiService';
 
-export const getOrganization = axiosIntance.get('/organization');
+export const getOrganization = axiosInstance.get('/organization');
 
 export const postOrganization = (organizationData = {
   id: 0,
@@ -15,4 +15,4 @@ export const postOrganization = (organizationData = {
   created_at: '',
   updated_at: '',
   deleted_at: ''
-}) => axiosIntance.post('/organization', organizationData);
+}) => axiosInstance.post('/organization', organizationData);

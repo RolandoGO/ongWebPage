@@ -1,25 +1,20 @@
 import React from "react";
 import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import Home from "./Screens/Home";
-import Nosotros from "./Screens/Nosotros";
-import Novedades from "./Screens/Novedades";
-import Actividades from "./Screens/Actividades";
-import Contacto from "./Screens/Contacto";
-import Contribuye from "./Screens/Contribuye";
-import Testimonios from "./Screens/Testimonios";
+import Home from "./screens/Home";
+import Dashboard from "./screens/Dashboard"
+import BackofficeCategories from "./screens/BackofficeCategories"
+import { ActivitiesScreen } from "./Screens/ActivitiesScreen";
+
+// import Nosotros from "./screens/Nosotros";
+// import Novedades from "./screens/Novedades";
+// import Actividades from "./screens/Actividades";
+// import Contacto from "./screens/Contacto";
+// import Contribuye from "./screens/Contribuye";
+// import Testimonios from "./screens/Testimonios";
 
 
-function App() {
-
-  //Fake Token: this token will come from the localstorage once the user is authenticated.
-  const fakeToken = '837498123694819287412';
-  const setToken = () => {
-    localStorage.setItem('token', fakeToken);
-  };
-  setToken();
-
-
+const App = () => {
   //Check if a token exists in localstorage
   const token = localStorage.getItem('token');
   if(token) {
@@ -30,15 +25,15 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/" component={Nosotros} />
-        <Route exact path="/" component={Actividades} />
-        <Route exact path="/" component={Novedades} />
-        <Route exact path="/" component={Testimonios} />
-        <Route exact path="/" component={Contacto} />
-        <Route exact path="/" component={Contribuye} />
+        <Route exact path="/backoffice" component={Dashboard} />
+        <Route exact path="/backoffice/categories" component={BackofficeCategories} />
+        <Route exact path="/backoffice/activities" component={ActivitiesScreen} />
       </Switch>
     </BrowserRouter>
+    
   );
 }
 
 export default App;
+
+      

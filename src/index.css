@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/** Activities Styles **/
+
+.bg-activities {
+  background-color: #9AC9FB;
+  border-radius: 5px;
+}
+
+.bg-card-activity {
+background: rgba(0, 0, 0, 0.2);
+border-radius: 5px;
+}
+
+.bg-card-activity small {
+  color: black;
+}

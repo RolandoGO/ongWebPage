@@ -12,16 +12,16 @@ export const ActivitiesForm = ({
     description: "Luis",
   },
 }) => {
-  const inputHandler = (event, editor) => {
-    formik.setFieldValue("signator_text", editor.getData());
-  };
   const formik = useFormik({
     initialValues: activity,
     validationSchema: Yup.object({
       name: Yup.string()
         .max(15, "Must be 15 characters or less")
         .required("Campo Obligatorio"),
-      image: Yup.string().required("Campo Obligatorio"),
+      image: Yup.string().required("Campo Obligatorio")
+      .matches((/(https?:\/\/.*\.(?:png|jpg))/i),
+        'Enter correct url!'
+    ),
       description: Yup.string()
         .min(10, "Must be 10 characters or more")
         .required("Campo Obligatorio"),
@@ -60,7 +60,6 @@ export const ActivitiesForm = ({
                   Imagen url:
                 </label>
                 <input
-                  {...formik.getFieldProps("image")}
                   type="name"
                   className="form-control "
                   name="image"
@@ -80,12 +79,14 @@ export const ActivitiesForm = ({
                   Descripción
                 </label>
                 <CKEditor
-                  onChange={formik.handleChange}
                   value={formik.values.description}
                   id="description"
                   editor={ClassicEditor}
                   data={formik.values.description}
-                  onChange={inputHandler}
+                  onChange={(event, editor) => {
+                    const data = editor.getData();
+                    formik.values.description = { data }.data;
+                  }}
                 />
                 {formik.touched.description && formik.errors.description ? (
                   <div className="border rounded mt-3 text-danger p-1 align-items-center d-flex justify-content-center">

@@ -1,7 +1,7 @@
 import React, {memo, useMemo} from 'react'
 import deleteIcon from "../assets/delete-icon.svg"
 
-export const BackofficeCategoriesListTable = memo(({handleDelete,handleEdit,data})=> {
+export const BackofficeCategoriesListTable = memo((props)=> {
 
     const {handleDelete,handleEdit,data}=props
 

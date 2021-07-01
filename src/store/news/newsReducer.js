@@ -13,7 +13,7 @@ const editNewsThunk = createAsyncThunk("news/postNewsThunk", async (news) => {
 	return await editNews(news).data; //method in newsService.js
 });
 
-const editNewsThunk = createAsyncThunk("news/postNewsThunk", async (news) => {
+const deleteNewsThunk = createAsyncThunk("news/postNewsThunk", async (news) => {
 	return await deleteNews(news); //method in newsService.js
 });
 

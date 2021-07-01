@@ -5,9 +5,9 @@ import InputGroup from "./InputGroup";
 import "../styles/NewsForm.css";
 
 const ImgContainer = (props) => {
-  if (props.imgUrl === "") {
+  if (props.errors.image || props.imgUrl === "") {
     return (
-      <div className="mt-5 bg-light text-secondary rounded-2 no-image d-flex justify-content-center align-items-center">
+      <div className="mt-5 bg-light text-secondary rounded-2 no-image d-flex justify-content-center align-items-center border">
         <h5>No Image</h5>
       </div>
     );
@@ -22,18 +22,42 @@ const ImgContainer = (props) => {
   }
 };
 
-function RegistrationForm() {
+const FormNewsTitle = (props) => {
+  const title = props.id ? "Edicion" : "Creación";
+  return (
+    <h1 className="fw-bold p-1 mb-4 text-center">
+      Formulario de {title} de novedades
+    </h1>
+  );
+};
+
+const handleSubmit = (values) => {
+  const editNews = () => {};
+  const createNews = () => {};
+
+  if (values.id !== 0) {
+    return editNews(values);
+  } else {
+    return createNews(values);
+  }
+};
+
+function RegistrationForm(props) {
+  const { news } = props;
+
   const initialValues = {
-    name: "",
-    image: "",
-    content: "",
-    category: "A",
+    id: news?.id || 0,
+    name: news?.name || "",
+    image: news?.image || "",
+    content: news?.content || "",
+    category: news?.category || "",
   };
 
   const validationSchema = Yup.object({
     name: Yup.string().required("El campo no puede estar vacío"),
     image: Yup.string()
       .url("No es un formato url valido")
+      .matches(/\.(?:jpg|gif|png)/, "No es un formato de imagen valido")
       .required("El campo no puede estar vacío"),
     content: Yup.string()
       .min(20, "El contenido debe tener al menos 20 caracteres")
@@ -44,16 +68,16 @@ function RegistrationForm() {
   return (
     <div>
       <Formik
+        enableReinitialize={true}
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          console.log(values);
+          handleSubmit(values);
         }}
       >
         {({ errors, values }) => (
-          <Form className="container py-3 col-md-6 col-lg-4">
-            <h1 className="fw-bold p-1 mb-4 text-center">Novedades</h1>
-
+          <Form className="container py-3 col-md-8 col-lg-5 mb-4">
+            <FormNewsTitle props={props} />
             <InputGroup
               identifier="category"
               type="select"
@@ -68,7 +92,7 @@ function RegistrationForm() {
               errors={errors}
             />
 
-            <ImgContainer imgUrl={values.image} />
+            <ImgContainer imgUrl={values.image} errors={errors} />
             <InputGroup
               identifier="image"
               labelText="Dirección url de la imagen"

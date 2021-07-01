@@ -1,7 +1,41 @@
 import * as React from "react";
 import { ErrorMessage, Field } from "formik";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import "../styles/InputGroup.css";
 
 const ErrorTooltip = (msg) => <div className="invalid-tooltip mt-1">{msg}</div>;
+
+const CKEditorCompnent = ({
+  field, // { name, value, onChange, onBlur }
+  form: { touched, errors, setFieldValue },
+  ...props
+}) => {
+  return (
+    <div className={props.className}>
+      <CKEditor
+        name={field.name}
+        editor={ClassicEditor}
+        data={field.value}
+        onChange={(e, editor) => setFieldValue("content", editor.getData())}
+      />
+    </div>
+  );
+};
+
+const TextareaField = (props) => {
+  const { identifier, errors } = props;
+  return (
+    <Field
+      name={identifier}
+      component={CKEditorCompnent}
+      className={`form-control ${
+        errors[identifier] && "is-invalid"
+      } textarea m-0 p-0`}
+      errors={errors}
+    />
+  );
+};
 
 const TextField = (props) => {
   const { identifier, type, errors } = props;
@@ -14,33 +48,27 @@ const TextField = (props) => {
   );
 };
 
-const TextareaField = (props) => {
-  const { identifier, type, errors } = props;
-  return (
-    <Field
-      as="textarea"
-      name={identifier}
-      type={type}
-      className={`form-control ${errors[identifier] && "is-invalid"} textarea`}
-    />
-  );
-};
-
 const SelectField = (props) => {
-  const { identifier, type, errors } = props;
+  const { identifier, type, errors, category } = props;
 
-  //Replace "categories" with real categories from store
+  //Replace with getCategoryList
   const categories = [
-    { name: "A", id: "1" },
-    { name: "B", id: "2" },
-    { name: "C", id: "3" },
-    { name: "D", id: "4" },
+    { name: "A", id: 1 },
+    { name: "B", id: 2 },
+    { name: "C", id: 3 },
+    { name: "D", id: 4 },
   ];
+
+  const noCategoriesOptions = () => {
+    return category !== "" ? (
+      <option defaultValue>Seleccione una categoría</option>
+    ) : null;
+  };
 
   const categoriesOptions = () => {
     return categories.map((option) => {
       return (
-        <option key={option.id} value={option.value}>
+        <option key={option.id} value={option.id}>
           {option.name}
         </option>
       );
@@ -48,6 +76,7 @@ const SelectField = (props) => {
   };
 
   const options = categoriesOptions();
+  const defaultOption = noCategoriesOptions();
 
   return (
     <Field
@@ -56,7 +85,7 @@ const SelectField = (props) => {
       type={type}
       className={`form-control ${errors[identifier] && "is-invalid"}`}
     >
-      <option key={0}>Seleccione una categoría</option>
+      {defaultOption}
       {options}
     </Field>
   );

@@ -3,11 +3,8 @@ import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Home from "./screens/Home";
 import Dashboard from "./screens/Dashboard"
-<<<<<<< HEAD
-=======
 import BackofficeCategories from "./screens/BackofficeCategories"
 import { ActivitiesScreen } from "./Screens/ActivitiesScreen";
->>>>>>> master
 
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";

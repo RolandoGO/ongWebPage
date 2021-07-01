@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect,useState } from 'react'
-import {Link} from "react-router-dom"
+import {NavLink} from "react-router-dom"
 import {BackofficeCategoriesListTable} from '../components/BackofficeCategoriesListTable'
 
 export default function BackofficeCategories() {
@@ -45,13 +45,14 @@ export default function BackofficeCategories() {
         
     return (
             <div className="container">
+                
 
-               <div className="d-flex justify-content-between w-50 mb-4" style={{margin:"auto"}}>
-               <Link to="/backoffice/categoríe/create">Create Categorie</Link>
-                <Link to="/backoffice/categoríe/edition">Edit Categorie</Link>
+                <div className="d-flex justify-content-between w-50 mb-4" style={{margin:"auto"}}>
+                    <NavLink style={{textDecoration:"none", fontWeight:"bolder", color:"#9AC9FB"}} to="/backoffice/categoríe/create">Create Categorie</NavLink>
+                    <NavLink style={{textDecoration:"none", fontWeight:"bolder", color:"#9AC9FB"}} to="/backoffice/categoríe/edition">Edit Categorie</NavLink>
                </div>
             
-                <BackofficeCategoriesListTable data={data} handleEdit={handleEdit} handleDelete={handleDelete}/>
+                <BackofficeCategoriesListTable data={data} handleEdit={handleEdit} handleDelete={handleDelete}/> 
 
             </div>
     )

@@ -21,6 +21,7 @@ const App = () => {
   };
 
   return (
+
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />

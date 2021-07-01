@@ -11,7 +11,7 @@ export const HeaderBackOffice = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <Router>
+    
       <header>
         <BackofficeSidebar show={show} handleClose={handleClose} />
         <nav className="navbar navbar-light navbar-backofice">
@@ -42,6 +42,6 @@ export const HeaderBackOffice = () => {
           </div>
         </nav>
       </header>
-    </Router>
+    
   );
 };

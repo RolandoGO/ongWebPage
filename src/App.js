@@ -14,6 +14,12 @@ import { ActivitiesScreen } from "./Screens/ActivitiesScreen";
 // import Testimonios from "./screens/Testimonios";
 
 const App = () => {
+  //Check if a token exists in localstorage
+  const token = localStorage.getItem('token');
+  if(token) {
+    console.log('authenticated user');
+  };
+
   return (
     <BrowserRouter>
       <Switch>

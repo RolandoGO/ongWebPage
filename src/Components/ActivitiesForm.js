@@ -1,40 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { BsExclamationCircleFill } from "react-icons/bs";
+import alertMessage from "./AlertMessage";
 
-export const ActivitiesForm = ({
-  activity = {
-    name: "Pepe",
-    image: "Juana",
-    description: "Luis",
-  },
-}) => {
+export const ActivitiesForm = ({ data }) => {
   const formik = useFormik({
-    initialValues: activity,
+    initialValues: data
+      ? { name: data.name, image: data.image, description: data.description }
+      : {
+          name: "",
+          image: "",
+          description: "",
+        },
     validationSchema: Yup.object({
       name: Yup.string()
         .max(15, "Must be 15 characters or less")
         .required("Campo Obligatorio"),
-      image: Yup.string().required("Campo Obligatorio")
-      .matches((/(https?:\/\/.*\.(?:png|jpg))/i),
-        'Enter correct url!'
-    ),
+      image: Yup.string()
+        .required("Campo Obligatorio")
+        .matches(/(https?:\/\/.*\.(?:png|jpg))/i, "Enter correct url!"),
       description: Yup.string()
         .min(10, "Must be 10 characters or more")
         .required("Campo Obligatorio"),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      // data ? "POST​/activities" : "PUT/activities​/{id}";
+      console.log(values);
+      alertMessage("success", "Agregado exitosamente", "");
     },
   });
   return (
     <React.Fragment>
       <div className="container">
         <div className="row d-flex justify-content-center">
-          <div className="col-8 border p-5 ">
+          <div className="col-10 col-md-8 border p-5 ">
             <form onSubmit={formik.handleSubmit}>
               <div className="form-group my-2">
                 <label forhtml="name" className="my-2">
@@ -96,8 +98,13 @@ export const ActivitiesForm = ({
                 ) : null}
               </div>
               <div className="text-center">
-                <button type="submit" className="btn btn-primary">
-                  Enviar
+                <button
+                  type="submit"
+                  className={
+                    data ? "btn btn-primary mt-2" : "btn btn-success mt-2"
+                  }
+                >
+                  {data ? "Editar" : "Agregar"}
                 </button>
               </div>
             </form>

@@ -1,4 +1,10 @@
 import * as React from 'react'
+import confirmAndDelete from '../utils/confirmAndDelete';
+
+/* this constant should be pass to the confirmAndDelete function to show
+the correspondent message alert and, if the user confirm, call the method 
+to perform the DELETE request */
+const CONTENT_TYPE = 'news'
 
 function NewsList({getNews,deleteNews,editNews}) {
 
@@ -10,7 +16,11 @@ function NewsList({getNews,deleteNews,editNews}) {
       <td>{createdAt}</td>
       <td>
         <div className="btn-group d-flex justify-content-center" role="group" aria-labelledby="actions">
-          <button onClick={deleteNews} type="button" className="btn flex-grow-0 btn-danger">Eliminar</button>
+          <button
+            type="button"
+            className="btn flex-grow-0 btn-danger"
+            onClick={() => confirmAndDelete(id, CONTENT_TYPE)}>
+            Eliminar</button>
           <button onClick={editNews} type="button" className="btn flex-grow-0 btn-outline-primary border-start-0">Editar</button>
         </div>
       </td>

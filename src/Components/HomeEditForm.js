@@ -2,7 +2,6 @@ import * as React from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import InputGroup from "./InputGroup";
-import "../styles/HomeEditForm.css";
 
 /* const ImgContainer = (props) => {
   if (props.errors.image || props.imgUrl === "") {
@@ -42,13 +41,9 @@ const handleSubmit = (values) => {
 };
 
 function RegistrationForm(props) {
-  const { news } = props;
   const initialValues = {
-    id: news?.id || 0,
-    name: news?.name || "",
-    image: news?.image || "",
-    content: news?.content || "",
-    category: news?.category || "",
+    image: "",
+    title: "",
   };
 
   const validationSchema = Yup.object({
@@ -57,7 +52,7 @@ function RegistrationForm(props) {
       .url("No es un formato url valido")
       .matches(/\.(?:jpg|gif|png)/, "No es un formato de imagen valido")
       .required("El campo no puede estar vacío"),
-    content: Yup.string()
+    title: Yup.string()
       .min(20, "El contenido debe tener al menos 20 caracteres")
       .required("El campo no puede estar vacío"),
     category: Yup.string().required("El campo no puede estar vacío"),
@@ -78,24 +73,11 @@ function RegistrationForm(props) {
             <h1 className="fw-bold p-1 mb-4 text-center">
               Formulario Edición Home
             </h1>
-            <InputGroup
-              identifier="content"
-              type="textarea"
-              labelText="Contenido"
-              errors={errors}
-            />
 
             <InputGroup
-              identifier="name"
-              labelText="Título"
-              type="text"
-              errors={errors}
-            />
-
-            <InputGroup
-              identifier="image"
-              labelText="Dirección url de la imagen"
-              type="url"
+              identifier="title"
+              labelText="Texto de bienvenida"
+              type="textareaTitle"
               errors={errors}
             />
 

@@ -21,14 +21,17 @@ import InputGroup from "./InputGroup";
   }
 }; */
 
-/* const FormNewsTitle = (props) => {
-  const title = props.id ? "Edicion" : "Creación";
-  return (
-    <h1 className="fw-bold p-1 mb-4 text-center">
-      Formulario de {title} de novedades
-    </h1>
-  );
-}; */
+const NestedSlides = (props) => {
+  const listSlides = props.values.slides;
+  return listSlides.map((slide, index) => {
+    console.log(listSlides);
+    return (
+      <h4>
+        {slide.name},{index}
+      </h4>
+    );
+  });
+};
 
 const handleSubmit = (values) => {
   const editNews = () => {};
@@ -42,20 +45,29 @@ const handleSubmit = (values) => {
 
 function RegistrationForm(props) {
   const initialValues = {
-    image: "",
-    title: "",
+    name: "",
+    wellcomeText: "",
+    slides: [
+      { image: "", text: "" },
+      { image: "", text: "" },
+      { image: "", text: "" },
+    ],
   };
 
   const validationSchema = Yup.object({
-    name: Yup.string().required("El campo no puede estar vacío"),
-    image: Yup.string()
-      .url("No es un formato url valido")
-      .matches(/\.(?:jpg|gif|png)/, "No es un formato de imagen valido")
-      .required("El campo no puede estar vacío"),
-    title: Yup.string()
+    wellcomeText: Yup.string()
       .min(20, "El contenido debe tener al menos 20 caracteres")
       .required("El campo no puede estar vacío"),
-    category: Yup.string().required("El campo no puede estar vacío"),
+    slides: Yup.array().of(
+      Yup.object().shape({
+        image: Yup.string()
+          .url("No es un formato url valido")
+          .matches(/\.(?:jpg|gif|png)/, "No es un formato de imagen valido")
+          .required("El campo no puede estar vacío"),
+        text: Yup.string().required("El campo no puede estar vacío"),
+      })
+    ),
+    name: Yup.string().required("El campo no puede estar vacío"),
   });
 
   return (
@@ -73,11 +85,51 @@ function RegistrationForm(props) {
             <h1 className="fw-bold p-1 mb-4 text-center">
               Formulario Edición Home
             </h1>
+            <NestedSlides values={values} />
+            <InputGroup
+              identifier="wellcomeText"
+              labelText="Texto de bienvenida"
+              type="textarea"
+              errors={errors}
+            />
 
             <InputGroup
-              identifier="title"
-              labelText="Texto de bienvenida"
-              type="textareaTitle"
+              identifier="slides[0].image"
+              labelText="Url de la imagen 1"
+              type="url"
+              errors={errors}
+            />
+
+            <InputGroup
+              identifier="slides[0].text"
+              labelText="Texto de la imagen 1"
+              type="text"
+              errors={errors}
+            />
+            <InputGroup
+              identifier="slides[1].image"
+              labelText="Url de la imagen 2"
+              type="url"
+              errors={errors}
+            />
+
+            <InputGroup
+              identifier="slides[1].text"
+              labelText="Texto de la imagen 2"
+              type="text"
+              errors={errors}
+            />
+            <InputGroup
+              identifier="slides[2].image"
+              labelText="Url de la imagen 3"
+              type="url"
+              errors={errors}
+            />
+
+            <InputGroup
+              identifier="slides[2].text"
+              labelText="Texto de la imagen 3"
+              type="text"
               errors={errors}
             />
 

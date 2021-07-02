@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ErrorMessage, Field } from "formik";
+import { ErrorMessage, Field, getIn } from "formik";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import "../styles/inputGroup.css";
@@ -25,37 +25,36 @@ const CKEditorCompnent = ({
 
 const TextareaField = (props) => {
   const { identifier, errors } = props;
-  return (
-    <Field
-      name={identifier}
-      component={CKEditorCompnent}
-      className={`form-control ${
-        errors[identifier] && "is-invalid"
-      } textarea m-0 p-0`}
-      errors={errors}
-    />
-  );
-};
-
-const TextareaTitleField = (props) => {
-  const { identifier, type, errors } = props;
-  return (
-    <Field
-      as="textarea"
-      name={identifier}
-      type={type}
-      className={`form-control ${errors[identifier] && "is-invalid"}`}
-    />
-  );
+  if (identifier === "content") {
+    return (
+      <Field
+        name={identifier}
+        component={CKEditorCompnent}
+        className={`form-control ${
+          errors[identifier] && "is-invalid"
+        } textarea m-0 p-0`}
+        errors={errors}
+      />
+    );
+  } else {
+    return (
+      <Field
+        as="textarea"
+        name={identifier}
+        className={`form-control ${errors[identifier] && "is-invalid"}`}
+      />
+    );
+  }
 };
 
 const TextField = (props) => {
   const { identifier, type, errors } = props;
+
   return (
     <Field
       name={identifier}
       type={type}
-      className={`form-control ${errors[identifier] && "is-invalid"}`}
+      className={`form-control ${getIn(errors, identifier) && "is-invalid"}`}
     />
   );
 };
@@ -95,7 +94,7 @@ const SelectField = (props) => {
       as="select"
       name={identifier}
       type={type}
-      className={`form-control ${errors[identifier] && "is-invalid"}`}
+      className={`form-control ${getIn(errors[identifier]) && "is-invalid"}`}
     >
       {defaultOption}
       {options}
@@ -106,14 +105,12 @@ const SelectField = (props) => {
 const FieldComponent = (props) => {
   const { type, ...rest } = props;
   switch (type) {
-    case "textareaTitle":
-      return <TextareaTitleField {...rest} />;
     case "textarea":
       return <TextareaField {...rest} />;
     case "select":
       return <SelectField {...rest} />;
     default:
-      return <TextField {...rest} />;
+      return <TextField type={type} {...rest} />;
   }
 };
 

@@ -1,9 +1,10 @@
 import React from "react";
+import HomeEditForm from "../components/HomeEditForm";
 
 function Home() {
   return (
     <div>
-      <h2>Home</h2>
+      <HomeEditForm />
     </div>
   );
 }

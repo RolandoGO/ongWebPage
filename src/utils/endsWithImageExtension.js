@@ -1,6 +1,10 @@
+const imageExtensions = [".jpg", ".jpeg", ".png"];
+
 export default function endsWithImageExtension(url) {
   if (url) {
-    return url.endsWith('.jpg') || url.endsWith('.jpeg') || url.endsWith('.png');
+    const urlExtensionStartIndex = url.lastIndexOf(".");
+    const urlExtension = url.slice(urlExtensionStartIndex);
+    return imageExtensions.includes(urlExtension);
   }
+  return false;
 }
-

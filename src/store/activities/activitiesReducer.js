@@ -12,7 +12,7 @@ export const fetchActivities = createAsyncThunk(
 );
 
 export const postNewActivity = createAsyncThunk(
-  "activities/createActivity",
+  "activities/postNewActivity",
   async (newActivity) => await createActivity(newActivity)
 );
 

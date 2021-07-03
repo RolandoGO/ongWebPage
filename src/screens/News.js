@@ -2,14 +2,10 @@ import * as React from "react";
 
 import { HeaderBackOffice } from '../components/HeaderBackOffice'
 import NewsList from '../components/NewsList';
-import newsService from '../services/newsService';
+import { editNews, deleteNews, getNews, createNews} from '../services/newsService';
 
 
-function News() {
-
-  const { editNews, deleteNews, getNews, createNews}=newsService()
-
-  
+function News() {  
   return (
     <>
       <HeaderBackOffice createNews={createNews} />

@@ -5,7 +5,7 @@ import Home from "./screens/Home";
 import Dashboard from "./screens/Dashboard"
 import BackofficeCategories from "./screens/BackofficeCategories"
 import { ActivitiesScreen } from "./screens/ActivitiesScreen";
-import UsersCreateEdit from "./components/UsersCreateEdit";
+
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";
 // import Actividades from "./screens/Actividades";
@@ -13,18 +13,12 @@ import UsersCreateEdit from "./components/UsersCreateEdit";
 // import Contribuye from "./screens/Contribuye";
 // import Testimonios from "./screens/Testimonios";
 
-const user ={
-  email:"rolo@gmail.com",
-  name:"rolo",
-  role:"teacher",
-  profilePhoto:"wwjf.herihe/uuu"
-  
-}
+
 const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" render={()=><UsersCreateEdit user={null}/>} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/backoffice" component={Dashboard} />
         <Route exact path="/backoffice/categories" component={BackofficeCategories} />
         <Route exact path="/backoffice/activities" component={ActivitiesScreen} />

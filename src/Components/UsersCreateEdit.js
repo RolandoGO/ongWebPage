@@ -14,11 +14,24 @@ function checkingImg(url){
     let image = new Image();
      image.src = url
    
-    if (image.width === 0) return <span>Invalid image URL</span>
+    if (image.width === 0) return (
+        <div >
+            <div className="head"></div>
+            <div className="body"></div>
+            <span style={{position:"relative", bottom:"50px", fontWeight:"bold"}}>Invalid Img</span>
+        </div>
+    )
     else  return <img src={url} alt ="image cant be loaded"></img>;
        
-}
+}  
+
    
+function isEmpty(obj) {
+
+    if(obj===null || Object.keys(obj).length === 0)return true
+    return false
+    
+}
  
 
        
@@ -32,16 +45,6 @@ export default function UsersCreateEdit({user}) {
     const [createBtnDisable, setCreateBtnDisable] = useState(false)
     const [editBtnDisable, setEditBtnDisable] = useState(false)
 
-    
-    useEffect(()=>{
-       if(user) setCreateBtnDisable(true)
-       else setEditBtnDisable(true)
-
-        setImgUrl(handleImage(user))
-        handleInitialState(user)
-          
-    },[])
-       
     const initialValues={
         email:"",
         name:"",
@@ -49,32 +52,41 @@ export default function UsersCreateEdit({user}) {
         profilePhoto:""
         
     }
+
+    useEffect(()=>{
+       if(isEmpty(user)) {
+           
+            setEditBtnDisable(true)
+            setFormData(initialValues)
+        }
+        
+       else {
+            setCreateBtnDisable(true)
+            setImgUrl(handleImage(user))
+            setFormData(user)
+         } 
+           
+               
+    },[])
+        
+      
+       
+  
+   
     function handleSubmit(values){
         console.log(values)
     }
 
     function handleImage(user){
-        if(user){
+        if(user.profilePhoto){
             return checkingImg(user.profilePhoto)
         }
-        else{
-            return(
-                <div >
-                   
-                    <div className="head"></div>
-                    <div className="body"></div>
-                </div>
         
-            )
-        }
     }
     
-    function handleInitialState(user){
+    
 
-        if(user) setFormData(user)
-        else setFormData(initialValues) 
-
-    }
+   
       
   const fontStyle={fontWeight:"bold", fontSize:"20px", fontFamily:"Georgia, seri"}
     

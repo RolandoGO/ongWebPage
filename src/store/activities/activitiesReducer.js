@@ -6,11 +6,14 @@ import {
   deleteActivity,
 } from "../../services/activitiesService";
 
-const initialState = { activities: [], status: "idle", error: null };
+const initialState = { activitiesList: [], status: "idle", error: null };
 
 export const fetchActivities = createAsyncThunk(
   "activities/fetchActivities",
-  listActivities
+  async () => {
+    const { data } = await listActivities();
+    return data;
+  }
 );
 
 export const postNewActivity = createAsyncThunk(
@@ -38,7 +41,7 @@ const activitiesSlice = createSlice({
     },
     [fetchActivities.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      state.activities = action.payload;
+      state.activitiesList = action.payload.data;
     },
     [fetchActivities.rejected]: (state, action) => {
       state.status = "failed";
@@ -49,7 +52,7 @@ const activitiesSlice = createSlice({
     },
     [postNewActivity.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      state.activities = state.activities.push(action.payload);
+      state.activities = state.activities.push(action.payload.activities);
     },
     [postNewActivity.rejected]: (state, action) => {
       state.status = "failed";

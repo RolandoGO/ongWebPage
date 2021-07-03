@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Testimonios() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return <div></div>;
 }
 
-export default Testimonios
+export default Testimonios;

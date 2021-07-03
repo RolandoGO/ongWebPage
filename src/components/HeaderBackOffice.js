@@ -9,8 +9,9 @@ export const HeaderBackOffice = ({createNews}) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   return (
-    <Router>
+    
       <header>
         <BackofficeSidebar show={show} handleClose={handleClose} />
         <nav className="navbar navbar-light navbar-backofice">
@@ -41,6 +42,6 @@ export const HeaderBackOffice = ({createNews}) => {
           </div>
         </nav>
       </header>
-    </Router>
+    
   );
 };

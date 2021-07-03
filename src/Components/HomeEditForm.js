@@ -7,7 +7,7 @@ const ImgContainer = (props) => {
   return (
     <img
       src={props.imgUrl}
-      className="w-100 pt-2 img-fluid mx-auto d-block"
+      className="w-100 mt-0 pt-2 img-fluid mx-auto d-block"
       alt=""
       onError={(e) => {
         e.target.src = "https://i.stack.imgur.com/GNhxO.png";
@@ -21,7 +21,7 @@ const NestedSlides = (props) => {
   return listSlides.map((slide, index) => {
     return (
       <div key={index} className="mt-4 pt-2">
-        <h4 className="mt-2">Slide {index + 1}</h4>
+        <p className="mt-2 mb-0">Slide {index + 1}</p>
         <ImgContainer imgUrl={props.values.slides[index].image} />
         <InputGroup
           identifier={`slides[${index}].image`}
@@ -85,23 +85,25 @@ function RegistrationForm(props) {
       >
         {({ errors, values }) => (
           <Form className="container py-3 col-md-8 col-lg-5 mb-4">
-            <h1 className="fw-bold p-1 mb-4 text-center">
+            <h1 className="fw-bold p-1 my-4 text-center">
               Formulario Edición Home
             </h1>
-            <InputGroup
-              identifier="wellcomeText"
-              labelText="Texto de bienvenida"
-              type="textarea"
-              errors={errors}
-            />
-            <NestedSlides errors={errors} values={values} />
+            <div className="pt-4">
+              <InputGroup
+                identifier="wellcomeText"
+                labelText="Texto de bienvenida"
+                type="textarea"
+                errors={errors}
+              />
+              <NestedSlides errors={errors} values={values} />
 
-            <button
-              type="submit"
-              className="btn btn-primary btn-lg mx-auto d-block mt-5"
-            >
-              Enviar
-            </button>
+              <button
+                type="submit"
+                className="btn btn-primary btn-lg mx-auto d-block mt-5"
+              >
+                Enviar
+              </button>
+            </div>
           </Form>
         )}
       </Formik>

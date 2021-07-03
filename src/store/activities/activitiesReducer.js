@@ -3,6 +3,7 @@ import {
   listActivities,
   createActivity,
   editActivity,
+  deleteActivity,
 } from "../../services/activitiesService";
 
 const initialState = { activities: [], status: "idle", error: null };
@@ -22,6 +23,11 @@ export const modifyActivity = createAsyncThunk(
   async (activityData) => await editActivity(activityData)
 );
 
+export const removeActivity = createAsyncThunk(
+  "activities/removeActivity",
+  async (activityId) => await deleteActivity(activityId)
+);
+
 const activitiesSlice = createSlice({
   name: "activities",
   initialState,
@@ -32,7 +38,7 @@ const activitiesSlice = createSlice({
     },
     [fetchActivities.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      state.activities = state.activities.concat(action.payload);
+      state.activities = action.payload;
     },
     [fetchActivities.rejected]: (state, action) => {
       state.status = "failed";
@@ -43,7 +49,7 @@ const activitiesSlice = createSlice({
     },
     [postNewActivity.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      state = state.activities.push(action.payload);
+      state.activities = state.activities.push(action.payload);
     },
     [postNewActivity.rejected]: (state, action) => {
       state.status = "failed";
@@ -65,6 +71,20 @@ const activitiesSlice = createSlice({
       }
     },
     [modifyActivity.rejected]: (state, action) => {
+      state.status = "failed";
+      state.error = action.error.message;
+    },
+    [removeActivity.pending]: (state, action) => {
+      state.status = "loading";
+    },
+    [removeActivity.fulfilled]: (state, action) => {
+      state.status = "succeeded";
+      const newActivities = state.activities.filter(
+        (activity) => activity.id !== action.payload.id
+      );
+      state.activities = newActivities;
+    },
+    [removeActivity.rejected]: (state, action) => {
       state.status = "failed";
       state.error = action.error.message;
     },

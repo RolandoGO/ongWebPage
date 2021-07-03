@@ -1,75 +1,18 @@
 import axiosIntance from "./apiService";
 
-export default function newsService(){
+const getNews = () => axiosIntance.get("/news")
 
+const createNews = (news) => axiosIntance.post("/news", news)
 
-    async function getNews(){
+const editNews = (news) => axiosIntance.put("/news/"+news.id,news)
 
-        try{
-            const call =  await axiosIntance.get("/news")
-            const response= await call.data
-            return response
+const  deleteNews = (news)=> axiosIntance.delete("/news/"+news.id)
 
-        }
-        catch(err){
-            if(err.request)alert("check the url or the conextion")
-            else alert("error in the resourse")
-        }
-
-
-
-    }
-
-    async function createNews(news){
-
-        try{
-            const call =  await axiosIntance.post("/news", news)
-            const response= await call.data
-            return response
-
-        }
-        catch(err){
-            if(err.request)alert("check the url or the conextion")
-            else alert("error in the resourse")
-        }
-
-    }
-
-    async function editNews(news){
-        try{
-            const call =  await axiosIntance.put("/news/"+news.id,news)
-            const response= await call.data
-            return response
-
-        }
-        catch(err){
-            if(err.request)alert("check the url or the conextion")
-            else alert("error in the resourse")
-        }
-
-    }
-
-    async function deleteNews(news){
-        try{
-            const call =  await axiosIntance.delete("/news/"+news.id)
-            const response= await call.success
-            return response
-
-        }
-        catch(err){
-            if(err.request)alert("check the url or the conextion")
-            else alert("error in the resourse")
-        }
-
-
-    }
-
-    return{
-        getNews,
-        createNews,
-        editNews,
-        deleteNews
-    }
+export default {
+    getNews,
+    createNews,
+    editNews,
+    deleteNews
 }
 
 

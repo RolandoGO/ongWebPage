@@ -61,8 +61,8 @@ const TextField = (props) => {
 
 const SelectField = (props) => {
   const { identifier, type, errors, category } = props;
-  //Replace with getCategoryList
 
+  //Replace with getCategoryList
   const categories = [
     { name: "A", id: 1 },
     { name: "B", id: 2 },

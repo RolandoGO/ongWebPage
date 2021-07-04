@@ -9,3 +9,11 @@ export const postTestimonials = (testimonialsData) =>
     image: testimonialsData.image,
     description: testimonialsData.description,
   });
+
+export const putTestimonials = (id, testimonialsData) =>
+  axiosInstance.put(`/testimonials/${id}`, {
+    id: id,
+    name: testimonialsData.name,
+    image: testimonialsData.image,
+    description: testimonialsData.description,
+  });

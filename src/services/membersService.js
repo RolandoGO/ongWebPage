@@ -11,3 +11,13 @@ export const postMembers = (membersData) =>
     facebookUrl: membersData.facebookUrl,
     linkedinUrl: membersData.linkedinUrl,
   });
+
+export const putMembers = (id, membersData) =>
+  axiosInstance.put(`/members/${id}`, {
+    id: id,
+    name: membersData.name,
+    image: membersData.image,
+    description: membersData.description,
+    facebookUrl: membersData.facebookUrl,
+    linkedinUrl: membersData.linkedinUrl,
+  });

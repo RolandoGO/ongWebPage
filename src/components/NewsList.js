@@ -16,17 +16,18 @@ function NewsList({getNews,deleteNews,editNews}) {
       <td>{createdAt}</td>
       <td>
         <div className="btn-group d-flex justify-content-center" role="group" aria-labelledby="actions">
-<<<<<<< HEAD:src/Components/NewsList.js
-          <button onClick={deleteNews} type="button" className="btn flex-grow-0 btn-danger">Eliminar</button>
-          <button onClick={editNews} type="button" className="btn flex-grow-0 btn-outline-primary border-start-0">Editar</button>
-=======
+
+          
+
           <button
             type="button"
             className="btn flex-grow-0 btn-danger"
             onClick={() => confirmAndDelete(id, CONTENT_TYPE)}>
             Eliminar</button>
-          <button type="button" className="btn flex-grow-0 btn-outline-primary border-start-0">Editar</button>
->>>>>>> master:src/components/NewsList.js
+
+
+          <button onClick={editNews} type="button" className="btn flex-grow-0 btn-outline-primary border-start-0">Editar</button>
+
         </div>
       </td>
     </tr>)

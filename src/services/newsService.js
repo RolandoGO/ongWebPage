@@ -1,50 +1,18 @@
 import axiosIntance from "./apiService";
 
-export default function newsService(){
+const getNews = () => axiosIntance.get("/news")
 
+const createNews = (news) => axiosIntance.post("/news", news)
 
-    async function getNews(){
+const editNews = (news) => axiosIntance.put("/news/"+news.id,news)
 
-       
-            const call =  await axiosIntance.get("/news")
-            const response= await call.data
-            return response
-    }
-       
+const  deleteNews = (news)=> axiosIntance.delete("/news/"+news.id)
 
-    async function createNews(news){
-
-      
-            const call =  await axiosIntance.post("/news", news)
-            const response= await call.data
-            return response
-    } 
-      
-   
-
-
-    async function editNews(news){
-     
-            const call =  await axiosIntance.put("/news/"+news.id,news)
-            const response= await call.data
-            return response
-
-    }
-
-    async function deleteNews(news){
-     
-            const call =  await axiosIntance.delete("/news/"+news.id)
-            const response= await call.success
-            return response
-
-    }
-
-    return{
-        getNews,
-        createNews,
-        editNews,
-        deleteNews
-    }
+export default {
+    getNews,
+    createNews,
+    editNews,
+    deleteNews
 }
 
 

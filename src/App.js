@@ -6,7 +6,6 @@ import Dashboard from "./screens/Dashboard";
 import BackofficeCategories from "./screens/BackofficeCategories";
 import { ActivitiesScreen } from "./Screens/ActivitiesScreen";
 
-
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";
 // import Actividades from "./screens/Actividades";

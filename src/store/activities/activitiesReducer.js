@@ -26,7 +26,10 @@ export const postNewActivity = createAsyncThunk(
 
 export const modifyActivity = createAsyncThunk(
   "activities/modifyActivity",
-  async (activityData) => await editActivity(activityData)
+  async (activityData) => {
+    const { data } = await editActivity(activityData);
+    return data;
+  }
 );
 
 export const removeActivity = createAsyncThunk(
@@ -55,7 +58,7 @@ const activitiesSlice = createSlice({
     },
     [postNewActivity.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      state.activitiesList = state.activities.push(action.payload.data);
+      state.activitiesList = state.activitiesList.push(action.payload.data);
     },
     [postNewActivity.rejected]: (state, action) => {
       state.status = "failed";
@@ -66,13 +69,13 @@ const activitiesSlice = createSlice({
     },
     [modifyActivity.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      const modifiedActivity = state.activities.find(
-        (activity) => activity.id === action.payload.id
+      const modifiedActivity = state.activitiesList.find(
+        (activity) => activity.id === action.payload.data.id
       );
 
       if (modifiedActivity) {
         for (const property in modifiedActivity) {
-          modifiedActivity[property] = action.payload[property];
+          modifiedActivity[property] = action.payload.data[property];
         }
       }
     },

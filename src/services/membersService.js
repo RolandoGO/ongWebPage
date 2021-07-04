@@ -21,3 +21,5 @@ export const putMembers = (id, membersData) =>
     facebookUrl: membersData.facebookUrl,
     linkedinUrl: membersData.linkedinUrl,
   });
+
+export const deleteMembers = (id) => axiosInstance.delete(`members/${id}`);

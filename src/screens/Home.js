@@ -1,7 +1,8 @@
-import React from 'react'
+import React from "react";
 
 
 function Home() {
+<<<<<<< HEAD
 
       return (
         <div>
@@ -15,3 +16,13 @@ export default Home
     
 
   
+=======
+  return (
+    <div>
+      <h2>Home</h2>
+    </div>
+  );
+}
+
+export default Home;
+>>>>>>> master

@@ -18,7 +18,10 @@ export const fetchActivities = createAsyncThunk(
 
 export const postNewActivity = createAsyncThunk(
   "activities/postNewActivity",
-  async (newActivity) => await createActivity(newActivity)
+  async (newActivity) => {
+    const { data } = await createActivity(newActivity);
+    return data;
+  }
 );
 
 export const modifyActivity = createAsyncThunk(
@@ -52,7 +55,7 @@ const activitiesSlice = createSlice({
     },
     [postNewActivity.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      state.activities = state.activities.push(action.payload.activities);
+      state.activitiesList = state.activities.push(action.payload.data);
     },
     [postNewActivity.rejected]: (state, action) => {
       state.status = "failed";

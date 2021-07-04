@@ -3,8 +3,8 @@ import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Home from "./screens/Home";
 import Dashboard from "./screens/Dashboard";
-import BackofficeCategories from "./screens/BackofficeCategories";
-import { ActivitiesScreen } from "./Screens/ActivitiesScreen";
+import BackofficeCategories from "./components/BackofficeCategories";
+import { ActivitiesScreen } from "./screens/ActivitiesScreen";
 
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";

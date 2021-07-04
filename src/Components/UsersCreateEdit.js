@@ -10,6 +10,13 @@ const validationSchema = Yup.object({
 
 });
 
+function handleImage(user){
+    if(user.profilePhoto){
+        return checkingImg(user.profilePhoto)
+    }
+    
+}
+
 function checkingImg(url){
     let image = new Image();
      image.src = url
@@ -39,7 +46,7 @@ function isEmpty(obj) {
 
 export default function UsersCreateEdit({user}) {
 
-    
+    const fontStyle={fontWeight:"bold", fontSize:"20px", fontFamily:"Georgia, seri"}
     const[formData, setFormData] = useState()
     const [imgUrl,setImgUrl] = useState("")
     const [createBtnDisable, setCreateBtnDisable] = useState(false)
@@ -74,21 +81,16 @@ export default function UsersCreateEdit({user}) {
   
    
     function handleSubmit(values){
-        console.log(values)
-    }
+        if(isEmpty(user)){
 
-    function handleImage(user){
-        if(user.profilePhoto){
-            return checkingImg(user.profilePhoto)
+            console.log("funcion para crear usuario con "+ values)
         }
-        
+        else{
+            console.log("funcon para editar usuario "+ values)
+        }
     }
-    
-    
 
-   
-      
-  const fontStyle={fontWeight:"bold", fontSize:"20px", fontFamily:"Georgia, seri"}
+    
     
     return (
         <div className="container mt-5">
@@ -159,3 +161,9 @@ export default function UsersCreateEdit({user}) {
 
    
     
+    
+    
+
+   
+      
+  

@@ -34,7 +34,10 @@ export const modifyActivity = createAsyncThunk(
 
 export const removeActivity = createAsyncThunk(
   "activities/removeActivity",
-  async (activityId) => await deleteActivity(activityId)
+  async (activityId) => {
+    const { data } = await deleteActivity(activityId);
+    return data;
+  }
 );
 
 const activitiesSlice = createSlice({
@@ -88,10 +91,10 @@ const activitiesSlice = createSlice({
     },
     [removeActivity.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      const newActivities = state.activities.filter(
-        (activity) => activity.id !== action.payload.id
+      const newActivities = state.activitiesList.filter(
+        (activity) => activity.id !== action.payload.data.id
       );
-      state.activities = newActivities;
+      state.activitiesList = newActivities;
     },
     [removeActivity.rejected]: (state, action) => {
       state.status = "failed";

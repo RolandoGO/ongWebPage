@@ -17,3 +17,6 @@ export const putTestimonials = (id, testimonialsData) =>
     image: testimonialsData.image,
     description: testimonialsData.description,
   });
+
+export const deleteTestimonials = (id) =>
+  axiosInstance.delete(`testimonials/${id}`);

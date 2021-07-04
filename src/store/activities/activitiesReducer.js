@@ -103,4 +103,8 @@ const activitiesSlice = createSlice({
   },
 });
 
+//selectors
+export const selectAllActivities = (state) => state.activities.activitiesList;
+export const selectActivitiesStatus = (state) => state.activities.status;
+
 export default activitiesSlice.reducer;

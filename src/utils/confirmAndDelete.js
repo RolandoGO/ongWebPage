@@ -1,4 +1,5 @@
 import AlertMessage from "../components/AlertMessage";
+import { deleteCategories } from "../services/categoriesService";
 
 const contentConfiguration = {
   news: {
@@ -10,10 +11,7 @@ const contentConfiguration = {
   },
   category: {
     titleText: "una categoría",
-    onConfirmation: (id) => {
-      console.log(`Categoría eliminada con id ${id}`);
-      // deleteCategory(id) -> this method should make a DELETE request to de API
-    },
+    onConfirmation: (id) => deleteCategories(id),
   },
 };
 

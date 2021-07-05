@@ -5,9 +5,10 @@ import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 function CategoriesForm({ Category }) {
-  const initialState = Category !== undefined ? { _name, description } : "";
   const { _name, description } = Category !== undefined ? Category : "";
-  const [addData, setData] = useState(initialState);
+  const [addData, setData] = useState(() => {
+    return Category !== undefined ? { _name, description } : "";
+  });
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -21,7 +22,7 @@ function CategoriesForm({ Category }) {
   });
 
   return (
-    <div className='container justify-content-md-center'>
+    <div className="container justify-content-md-center">
       <Formik
         initialValues={{ name: "", description: "" }}
         onSubmit={(values, actions, errors) => {
@@ -34,25 +35,26 @@ function CategoriesForm({ Category }) {
         {(props) => (
           <Form
             onSubmit={props.handleSubmit}
-            className='container py-3 col-md-12 col-lg-4 mb-4'>
+            className="container py-3 col-md-12 col-lg-4 mb-4">
             <h1>Categories</h1>
-            <div className='row '>
+            <div className="row">
               <Field
-                name='name'
-                type='text'
-                className='my-3'
+                name="name"
+                type="text"
+                className="my-3"
                 value={props.values.name}
                 onChange={props.handleChange}></Field>
               <ErrorMessage
-                name='name'
+                name="name"
                 render={(msg) => (
-                  <div className='alert alert-info' role='alert'>
+                  <div className="alert alert-info" role="alert">
                     {msg}
                   </div>
-                )}></ErrorMessage>
+                )}
+              />
             </div>
-            <div className='row '>
-              <Field name='description'>
+            <div className="row ">
+              <Field name="description">
                 {({
                   field, // { name, value, onChange, onBlur }
                   form: { touched, errors, setFieldValue }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
@@ -73,16 +75,16 @@ function CategoriesForm({ Category }) {
                 )}
               </Field>
               <ErrorMessage
-                name='name'
+                name="name"
                 render={(msg) => (
-                  <div className='alert alert-info' role='alert'>
+                  <div className="alert alert-info" role="alert">
                     {msg}
                   </div>
-                )}></ErrorMessage>
+                )}/>
             </div>
             <button
-              type='submit'
-              className='btn btn-primary btn-lg mx-auto d-block mt-5'>
+              type="submit"
+              className="btn btn-primary btn-lg mx-auto d-block mt-5">
               Submit
             </button>
           </Form>
@@ -93,4 +95,3 @@ function CategoriesForm({ Category }) {
 }
 
 export default CategoriesForm;
-

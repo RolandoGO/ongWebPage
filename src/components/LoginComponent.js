@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { userLoginSuccess } from "../store/auth/auth.reducer";
 import logoONG from "../assets/LOGO-SOMOSMAS.png";
 
 const validationSchema = Yup.object({
@@ -9,15 +11,15 @@ const validationSchema = Yup.object({
 });
 
 const Login = React.memo(() => {
-  const [email_password, setEmail_Password] = useState({});
+  const dispatch = useDispatch();
+
   const [btnDisable, setBtnDisable] = useState(false);
 
   async function onSubmit(values) {
     setBtnDisable(true);
-    setEmail_Password({
-      email: values.email,
-      email: values.password,
-    });
+    dispatch(userLoginSuccess(values.email, values.password));
+
+    setBtnDisable(false);
   }
 
   const formik = useFormik({

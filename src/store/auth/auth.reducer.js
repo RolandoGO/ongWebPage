@@ -1,12 +1,24 @@
+import { USER_REGISTER } from './types';
+
 const initialState = {
-    user:"",
+    name:"",
     password:"",
     email:"",
     token:"",
 };
 
-function AuthReducer(state = initialState, action) {
+export const authReducer = (state = initialState, action) => {
+  switch ( action.type ) {
+    case USER_REGISTER:
+      return {
+        name: action.payload.name,
+        password: action.payload.password,
+        email: action.payload.email,
+        token: action.payload.token
+      }
+
+  }
   return state;
 }
 
-export default AuthReducer
+export default authReducer;

@@ -3,7 +3,7 @@ import deleteIcon from "../assets/delete-icon.svg"
 
 export const BackofficeCategoriesListTable = memo(({ handleDelete, handleEdit, data }) => {
 
-    const { handleDelete, handleEdit, data } = props
+    
 
     const displayData = data.map(categories => {
         return (

@@ -14,6 +14,13 @@ const contentConfiguration = {
       console.log(`Categoría eliminada con id ${id}`);
       // deleteCategory(id) -> this method should make a DELETE request to de API
     }
+  },
+  activity: {
+    titleText: 'una actividad',
+    onConfirmation: (id) => {
+      console.log(`actividad eliminada con id ${id}`);
+      // deleteActivity(id) -> this method should make a DELETE request to de API
+    }
   }
 }
 

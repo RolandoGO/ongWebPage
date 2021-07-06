@@ -6,7 +6,9 @@ the correspondent message alert and, if the user confirm, call the method
 to perform the DELETE request */
 const CONTENT_TYPE = 'news'
 
-function NewsList() {
+function NewsList({getNews,deleteNews,editNews}) {
+
+  
   const rows = fakeData.map(({ id, name, image, createdAt }) =>
     <tr key={id}>
       <td>{name}</td>
@@ -14,12 +16,18 @@ function NewsList() {
       <td>{createdAt}</td>
       <td>
         <div className="btn-group d-flex justify-content-center" role="group" aria-labelledby="actions">
+
+          
+
           <button
             type="button"
             className="btn flex-grow-0 btn-danger"
             onClick={() => confirmAndDelete(id, CONTENT_TYPE)}>
             Eliminar</button>
-          <button type="button" className="btn flex-grow-0 btn-outline-primary border-start-0">Editar</button>
+
+
+          <button onClick={editNews} type="button" className="btn flex-grow-0 btn-outline-primary border-start-0">Editar</button>
+
         </div>
       </td>
     </tr>)

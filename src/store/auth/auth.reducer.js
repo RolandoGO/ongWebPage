@@ -1,7 +1,8 @@
 import { login } from "../../services/authService";
 
 //actions
-const USER_LOGIN_SUCCESS = USER_LOGIN_SUCCESS;
+const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
+
 //action creator
 export const userLoginSuccess = (email, password) => {
   const { data } = login(email, password);
@@ -18,6 +19,7 @@ const initialState = {
   email: "",
   token: "",
 };
+
 function AuthReducer(state = initialState, action) {
   switch (action.type) {
     case USER_LOGIN_SUCCESS: {
@@ -25,8 +27,9 @@ function AuthReducer(state = initialState, action) {
         dataUser: action.payload,
       };
     }
+    default:
+      return state;
   }
-  return state;
 }
 
 export default AuthReducer;

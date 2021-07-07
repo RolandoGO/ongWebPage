@@ -25,6 +25,14 @@ function AuthReducer(state = initialState, action) {
         dataUser: action.payload,
       };
     }
+    case USER_LOGOUT_SUCCESS: {
+      localStorage.clear();
+      return {
+        ...state,
+        isAuthenticated: false,
+        user: null,
+      };
+    }
   }
   return state;
 }

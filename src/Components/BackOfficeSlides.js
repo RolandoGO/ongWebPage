@@ -58,11 +58,11 @@ export default function BackOfficeSlide() {
           <Table bordered hover>
             <thead>
               <tr>
-                <th>Order</th>
-                <th>Title</th>
-                <th>Image</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>Orden</th>
+                <th>Titulo</th>
+                <th>Imagen</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
               </tr>
             </thead>
             <tbody>{Data}</tbody>

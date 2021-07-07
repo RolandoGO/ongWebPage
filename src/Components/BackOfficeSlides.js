@@ -1,37 +1,21 @@
 import React, {  useMemo } from "react";
-import { Table } from "react-bootstrap";
+export default function App() {
 
-export default function BackOfficeSlide() {
   const Data = useMemo(() => {
-    return ( 
+    return (
       FakeData &&
-      FakeData.map((x,i) => (
-   
-    <tr key={i}>
-    <td>{x.order}</td>
-      <td>{x.name}</td>
-      <td><img src={x.image} alt={x.name}></img></td>
-    </tr>
-
+      FakeData.map((x) => (
+       <div>
+         <p>{x.name}</p>
+       </div>
       ))
-
     );
   }, [FakeData]);
 
   return (
     <div className="App">
-      <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Order</th>
-          <th>Title</th>
-          <th>Image</th>
-        </tr>
-      </thead>
-      <tbody>
-        {Data}
-        </tbody>
-        </Table>
+    <h1>Hola</h1>
+    {Data}
     </div>
   );
 }

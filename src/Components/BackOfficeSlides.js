@@ -35,6 +35,7 @@ export default function BackOfficeSlide() {
           <td>
             <button
               className="btn btn-danger"
+              // "order" must be replaced with the correct id 
               onClick={() => confirmAndDelete(x.order, CONTENT_TYPE)}
             >
               <BsTrash />

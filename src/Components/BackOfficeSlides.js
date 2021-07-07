@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Table, Image } from "react-bootstrap";
 import { BsTrash, BsPencil, BsFilePlus } from "react-icons/bs";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles.css";
+import "../styles/BackOfficeSlide.css";
 import { Link } from "react-router-dom";
 
 export default function BackOfficeSlide() {
@@ -11,8 +11,7 @@ export default function BackOfficeSlide() {
       FakeData &&
       FakeData.map((x, i) => (
         <tr
-          className="text-center align-middle 
-       "
+          className="text-center align-middle"
           key={i}
         >
           <td>{x.order}</td>
@@ -48,8 +47,7 @@ export default function BackOfficeSlide() {
             <button className=" w-100 btn-block btn btn-primary">
               Agregar Slide
               <span className=" ml-5">
-                {" "}
-                <BsFilePlus />{" "}
+                <BsFilePlus />
               </span>
             </button>
           </Link>

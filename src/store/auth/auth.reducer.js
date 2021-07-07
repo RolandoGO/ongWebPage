@@ -1,4 +1,26 @@
 import { login } from "../../services/authService";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+const getLoginThunk = createAsyncThunk(
+  "login/getLoginThunk",
+  async (email, password) => {
+    return await login(email, password);
+  }
+);
+
+const initialState = {
+  user: {},
+  isAuthenticated: false,
+  loading: false,
+  error: "",
+};
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {},
+  extraReducers: {},
+});
 
 //actions
 const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
@@ -21,13 +43,10 @@ export const userLogoutSuccess = () => {
 
 //Reducer
 const initialState = {
-  user: {
-    user: "",
-    password: "",
-    email: "",
-    token: "",
-  },
+  user: {},
   isAuthenticated: false,
+  loading: false,
+  error: "",
 };
 
 function AuthReducer(state = initialState, action) {

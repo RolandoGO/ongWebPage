@@ -5,6 +5,7 @@ import Home from "./screens/Home";
 import Dashboard from "./screens/Dashboard";
 import BackofficeCategories from "./components/BackofficeCategories";
 import { ActivitiesScreen } from "./screens/ActivitiesScreen";
+import { MembersFormBackOffice } from "./Components/MembersFormBackOffice";
 
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";
@@ -15,13 +16,12 @@ import { ActivitiesScreen } from "./screens/ActivitiesScreen";
 
 const App = () => {
   //Check if a token exists in localstorage
-  const token = localStorage.getItem('token');
-  if(token) {
-    console.log('authenticated user');
-  };
+  const token = localStorage.getItem("token");
+  if (token) {
+    console.log("authenticated user");
+  }
 
   return (
-
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
@@ -35,6 +35,11 @@ const App = () => {
           exact
           path="/backoffice/activities"
           component={ActivitiesScreen}
+        />
+        <Route
+          exact
+          path="/backoffice/organization/edit"
+          component={MembersFormBackOffice}
         />
       </Switch>
     </BrowserRouter>

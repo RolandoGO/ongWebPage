@@ -1,24 +1,29 @@
-import { USER_REGISTER } from './types';
+import { USER_REGISTER, USER_LOGIN_SUCCESS } from "./types";
+import { login } from "../../services/authService";
 
 const initialState = {
-    name:"",
-    password:"",
-    email:"",
-    token:"",
+  name: "",
+  password: "",
+  email: "",
+  token: "",
 };
 
-export const authReducer = (state = initialState, action) => {
-  switch ( action.type ) {
+const authReducer = (state = initialState, action) => {
+  switch (action.type) {
     case USER_REGISTER:
       return {
         name: action.payload.name,
         password: action.payload.password,
         email: action.payload.email,
-        token: action.payload.token
-      }
-
+        token: action.payload.token,
+      };
+    case USER_LOGIN_SUCCESS:
+      return {
+        dataUser: action.payload,
+      };
+    default:
+      return state;
   }
-  return state;
-}
+};
 
 export default authReducer;

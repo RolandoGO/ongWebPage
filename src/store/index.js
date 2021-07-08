@@ -1,9 +1,13 @@
-import { createStore } from "redux";
-import authReducer from "./auth/auth.reducer";
+import { configureStore } from "@reduxjs/toolkit";
+import AuthReducer from "./auth/auth.reducer";
+import newsReducer from './news/newsReducer'
 
-const store = createStore(
-    authReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+export const store = configureStore({
+    reducer: {
+        userInfo: AuthReducer,
+        newsInfo: newsReducer,
+    }
+});
+
 
 export default store;

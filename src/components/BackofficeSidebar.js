@@ -1,15 +1,13 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import "../styles/backofficeSidebar.css";
 
 const paths = {
   //Replace paths for real backoffice sections later
-  inicio: "/",
-  nosotros: "/nosotros",
-  actividades: "/actividades",
-  novedades: "/novedades",
-  testimonios: "/testimonios",
-  contacto: "/contacto",
-  contribuyente: "/contribuyente",
+  inicio: "/backoffice",
+  categories: "/backoffice/categories",
+  activities: "/backoffice/activities",
+  
 };
 
 function BackofficeSidebar(props) {
@@ -26,12 +24,12 @@ function BackofficeSidebar(props) {
     //Replace <a> for <Link to="/path"> later
     const listItems = Object.keys(paths).map((key, index) => (
       <li className="my-2 pt-3" key={index + key}>
-        <a
+        <Link
           className="text-capitalize text-decoration-none fw-bold fs-5 p-2 d-block"
-          href={paths[key]}
+          to={paths[key]}
         >
           {key}
-        </a>
+        </Link>
       </li>
     ));
     return <ul className="mt-3">{listItems}</ul>;

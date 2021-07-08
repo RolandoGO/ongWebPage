@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { BsExclamationCircleFill } from "react-icons/bs";
 import alertMessage from "./AlertMessage";
 
-export const MembersFormBackOffice = ({ data }) => {
+export const MembersFormBackOffice = ({ data}) => {
 
   const formik = useFormik({
     initialValues: data
@@ -34,7 +34,7 @@ export const MembersFormBackOffice = ({ data }) => {
     onSubmit: (values) => {
       // data ? "POST​/members" : "PUT/members/{id}";
       console.log(values);
-      alertMessage("success", "Agregado exitosamente", "", "OK");
+      alertMessage("success", "Agregado exitosamente", "", "OK","green");
     },
   });
 // Button Logic

@@ -1,8 +1,9 @@
+import {
+  USER_REGISTER,
+  USER_LOGIN_SUCCESS,
+  USER_LOGOUT_SUCCESS,
+} from "./types";
 import { login } from "../../services/authService";
-
-//actions
-const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
-const USER_LOGOUT_SUCCESS = "USER_LOGOUT_SUCCESS";
 
 //action creator
 export const userLoginSuccess = (email, password) => {
@@ -30,25 +31,30 @@ const initialState = {
   isAuthenticated: false,
 };
 
-function AuthReducer(state = initialState, action) {
+function authReducer(state = initialState, action) {
   switch (action.type) {
-    case USER_LOGIN_SUCCESS: {
+    case USER_REGISTER:
+      return {
+        name: action.payload.name,
+        password: action.payload.password,
+        email: action.payload.email,
+        token: action.payload.token,
+      };
+    case USER_LOGIN_SUCCESS:
       return {
         ...state,
         isAuthenticated: true,
         user: action.payload,
       };
-    }
-    case USER_LOGOUT_SUCCESS: {
+    case USER_LOGOUT_SUCCESS:
       return {
         ...state,
         isAuthenticated: false,
         user: null,
       };
-    }
     default:
       return state;
   }
 }
 
-export default AuthReducer;
+export default authReducer;

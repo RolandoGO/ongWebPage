@@ -1,7 +1,9 @@
 import React from "react";
+import confirmAndDelete from "../utils/confirmAndDelete"
 
+const CONTENT_TYPE = 'activity'
 export const CardActivityScreen = ({ activity }) => {
-  const { img, name, createdAt } = activity;
+  const { img, name, createdAt,idActivity } = activity;
 
   return (
     <div className="bg-card-activity mb-3">
@@ -24,7 +26,7 @@ export const CardActivityScreen = ({ activity }) => {
         <div className="col-md-4 d-flex align-items-center">
           <div className="card-body d-flex justify-content-center">
             <button className="m-2 btn btn-secondary">EDITAR</button>
-            <button className="m-2 btn btn-danger">ELIMINAR</button>
+            <button className="m-2 btn btn-danger" onClick={() => confirmAndDelete(idActivity, CONTENT_TYPE)}>ELIMINAR</button>
           </div>
         </div>
       </div>

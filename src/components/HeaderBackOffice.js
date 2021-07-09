@@ -5,7 +5,7 @@ import Logo from "../assets/LOGO-SOMOSMAS.png";
 import iconMenu from "../assets/icon-menu.png";
 import "../styles/backOfficeStyles.css";
 
-export const HeaderBackOffice = () => {
+export const HeaderBackOffice = ({createNews}) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

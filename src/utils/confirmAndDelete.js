@@ -9,7 +9,7 @@ const contentConfiguration = {
       // deleteNews(id) -> this method should make a DELETE request to de API
     },
   },
-  categoty: {
+  category: {
     titleText: "una categoría",
     onConfirmation: (id) => {
       console.log(`Categoría eliminada con id ${id}`);
@@ -23,15 +23,24 @@ const contentConfiguration = {
       // deleteActivity(id) -> this method should make a DELETE request to de API
     },
   },
+
+  member: {
+    titleText: "un miembro",
+    onConfirmation: (id) => {
+      console.log(`miembro eliminado con id ${id}`);
+      // deleteMember(id) -> this method should make a DELETE request to de API
+    },
+  },
 };
 
 function confirmAndDelete(id, contentType) {
   const { titleText, onConfirmation } = contentConfiguration[contentType];
-
   AlertMessage(
     "warning",
     `Está a punto de eliminar ${titleText}`,
-    "Una vez que lo haga no podrá deshacerlo"
+    "Una vez que lo haga no podrá deshacerlo",
+    "Eliminar",
+    "red"
   ).then(({ value }) => {
     if (value) {
       onConfirmation(id);

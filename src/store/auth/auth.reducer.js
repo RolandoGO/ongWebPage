@@ -23,6 +23,12 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
       state.user = {};
     },
+    register: (state, action) => {
+      state.user.name = action.payload.name;
+      state.user.password = action.payload.password;
+      state.user.email = action.payload.email;
+      state.user.token = action.payload.token;
+    },
   },
   extraReducers: {
     [fetchLoginThunk.pending]: (state, action) => {

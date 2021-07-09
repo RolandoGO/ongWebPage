@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 import { Table, Image } from "react-bootstrap";
 import { BsTrash, BsPencil, BsFilePlus } from "react-icons/bs";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/BackOfficeSlide.css";
 import { Link } from "react-router-dom";
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { TestimonialCardScreen } from "./TestimonialCardScreen";
 import imgTest from "../assets/imgTest.jpg";
 
-export const TestimonialsScreen = () => {
+export const TestimonialsScreen = ({props}) => {
   const testimonials = [
     {id: 1, img: imgTest, name: "Ayuda Comunitaria"},
     {id: 2, img: imgTest, name: "Comedor Infantil"},
@@ -18,7 +18,7 @@ export const TestimonialsScreen = () => {
           <TestimonialCardScreen key={testimonial.id} testimonial={testimonial} />
         );
       }),
-    [testimonials]
+    [props]
   );
 
   return (

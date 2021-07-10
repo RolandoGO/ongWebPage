@@ -24,19 +24,10 @@ export default function BackofficeCategories() {
     // return ()=> abortControl.abort()
   }, []);
 
-  const handleDelete = useCallback(
-    (categorie) => deleteCategorie(categorie),
-    [data]
-  );
-
   const handleEdit = useCallback(
     (categorie) => editCategorie(categorie),
     [data]
   );
-
-  function deleteCategorie(categorie) {
-    console.log("delete" + categorie.name);
-  }
 
   function editCategorie(categorie) {
     console.log("edit" + categorie.name);
@@ -52,11 +43,7 @@ export default function BackofficeCategories() {
         <Link to="/backoffice/categoríe/edition">Edit Categorie</Link>
       </div>
 
-      <BackofficeCategoriesListTable
-        data={data}
-        handleEdit={handleEdit}
-        handleDelete={handleDelete}
-      />
+      <BackofficeCategoriesListTable data={data} handleEdit={handleEdit} />
     </div>
   );
 }

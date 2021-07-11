@@ -1,12 +1,59 @@
-import {
-  USER_REGISTER,
-  USER_LOGIN_SUCCESS,
-  USER_LOGOUT_SUCCESS,
-} from "./types";
-import { login } from "../../services/authService";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { action } from "commander";
+
+import { login, register } from "../../services/authService";
+
+export const registerThunk = createAsyncThunk(
+	"auth/register",
+	async (personData) => {
+		await register(personData);
+	}
+);
+
+export const loginThunk = createAsyncThunk(
+	"auth/login",
+	async (email, password) => {
+		await login(email, password);
+	}
+);
+
+const authSlice = createSlice({
+	name: "auth",
+	initialState: {
+		user: {},
+		loading: false,
+		error: null,
+	},
+	extraReducers: {
+		//registerThunk
+		[registerThunk.pending]: (state, action) => {
+			state.loading = true;
+		},
+		[registerThunk.fulfilled]: (state, { payload }) => {
+			state.user = payload;
+			state.loading = false;
+		},
+		[registerThunk.rejected]: (state, action) => {
+			state.error = action.error;
+    },
+    //loginThunk
+    [loginThunk.pending]: (state, action) => {
+      state.loading = true
+    },
+    [loginThunk.fulfilled]: (state, action) => {
+      state.user = action.payload
+      state.loading = false
+    },
+    [loginThunk.rejected]: (state, action) => {
+      state.error = action.error
+    }
+	},
+});
+
+export default authSlice.reducer;
 
 //action creator
-export const userLoginSuccess = (email, password) => {
+/*export const userLoginSuccess = (email, password) => {
   const { data } = login(email, password);
   return {
     type: USER_LOGIN_SUCCESS,
@@ -57,4 +104,4 @@ function authReducer(state = initialState, action) {
   }
 }
 
-export default authReducer;
+export default authReducer;*/

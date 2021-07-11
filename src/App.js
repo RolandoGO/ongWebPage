@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import Home from "./screens/Home";
 import Dashboard from "./screens/Dashboard";
 import BackofficeCategories from "./components/BackofficeCategories";
 import { ActivitiesScreen } from "./screens/ActivitiesScreen";
-import BackOfficeSlide from "./Components/BackOfficeSlides";
+import BackOfficeSlide from "./components/BackOfficeSlides";
+import HomeScreen from "./screens/HomeScreen";
 
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";
@@ -24,7 +24,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={HomeScreen} />
         <Route exact path="/backoffice" component={Dashboard} />
         <Route
           exact

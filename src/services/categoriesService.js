@@ -1,4 +1,4 @@
-import axiosInstance from ".apiService";
+import axiosInstance from "./apiService";
 
 export const listCategories = () => {
 	return axiosInstance.get("/categories");

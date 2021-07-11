@@ -1,19 +1,14 @@
 import axiosIntance from "./apiService";
 
-const getNews = () => axiosIntance.get("/news")
+export const getNews = () => axiosIntance.get("/news")
 
-const createNews = (news) => axiosIntance.post("/news", news)
+export const createNews = (news) => axiosIntance.post("/news", news)
 
-const editNews = (news) => axiosIntance.put("/news/"+news.id,news)
+export const editNews = (news) => axiosIntance.put("/news/"+news.id,news)
 
-const  deleteNews = (news)=> axiosIntance.delete("/news/"+news.id)
+export const  deleteNews = (news)=> axiosIntance.delete("/news/"+news.id)
 
-export default {
-    getNews,
-    createNews,
-    editNews,
-    deleteNews
-}
+
 
 
 

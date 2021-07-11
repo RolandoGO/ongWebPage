@@ -5,6 +5,7 @@ import {Link} from "react-router-dom"
 export default function BackofficeOrganizationScreen() {
 
     const [data,setData]=useState(null)
+    
 
     async function displayData(){
         
@@ -33,7 +34,12 @@ export default function BackofficeOrganizationScreen() {
  
     
     useEffect(()=>{
-        displayData()
+        let mounted = true
+        if(mounted)displayData()
+
+        return ()=>{
+           mounted=false
+        }
         
     },[])
     

@@ -7,12 +7,12 @@ export default function BackofficeOrganizationScreen() {
     const [data,setData]=useState(null)
     
 
-    async function displayData(){
+    async function displayData(mounted){
         
         try{
             const call = await getOrganization;
             const res= await call.data
-            if(res.data[0]){
+            if(res.data[0] && mounted){
                 
                 setData(
                 <div className="d-flex align-items-center flex-column mt-4 p-4" style={{backgroundColor:"#9AC9FB", borderRadius:"5px"}}>
@@ -32,21 +32,15 @@ export default function BackofficeOrganizationScreen() {
     }
 
  
-    
     useEffect(()=>{
         let mounted = true
-        if(mounted)displayData()
+        displayData(mounted)
 
         return ()=>{
            mounted=false
         }
         
     },[])
-    
-
-    
-
-    
 
     
     return (

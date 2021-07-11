@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-//import newsService.js
+import  {getNews,
+createNews,
+editNews,
+deleteNews} from "../../services/newsService"
+
 
 const getNewsThunk = createAsyncThunk("news/getNewsThunk", async () => {
 	return await getNews(); //method in newsService.js

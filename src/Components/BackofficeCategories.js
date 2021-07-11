@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BackofficeCategoriesListTable } from "../components/BackofficeCategoriesListTable";
+import { BackofficeCategoriesListTable } from "./BackofficeCategoriesListTable";
 
 export default function BackofficeCategories() {
   //Mok data waiting for the response of the api endpoint

@@ -8,7 +8,7 @@ const editNews = (news) => axiosIntance.put("/news/"+news.id,news)
 
 const  deleteNews = (news)=> axiosIntance.delete("/news/"+news.id)
 
-export default {
+export  {
     getNews,
     createNews,
     editNews,

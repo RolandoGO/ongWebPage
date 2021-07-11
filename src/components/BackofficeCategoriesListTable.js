@@ -1,18 +1,19 @@
-import React, { memo, useMemo } from "react";
+import React, { memo } from "react";
 import deleteIcon from "../assets/delete-icon.svg";
+import confirmAndDelete from "../utils/confirmAndDelete";
 
-export const BackofficeCategoriesListTable = memo((props) => {
-  const { handleDelete, handleEdit, data } = props;
+const CONTENT_TYPE = "category";
 
-  const displayData = data.map((categories) => {
+export const BackofficeCategoriesListTable = memo(({ data, handleEdit }) => {
+  const displayData = data.map((category) => {
     return (
-      <tr key={categories.id}>
-        <td>{categories.name}</td>
-        <td>{categories.createdAt}</td>
+      <tr key={category.id}>
+        <td>{category.name}</td>
+        <td>{category.createdAt}</td>
         <td>
           <button
             className="btn btn-sm btn-danger"
-            onClick={() => handleDelete(categories)}
+            onClick={() => confirmAndDelete(category.id, CONTENT_TYPE)}
           >
             <img
               src={deleteIcon}
@@ -21,7 +22,7 @@ export const BackofficeCategoriesListTable = memo((props) => {
           </button>
           <button
             className="btn btn-sm btn-warning m-2"
-            onClick={() => handleEdit(categories)}
+            onClick={() => handleEdit(category)}
           >
             Edit
           </button>

@@ -41,6 +41,11 @@ export const HeaderBackOffice = ({ createNews }) => {
                   Crear un usuario
                 </Link>
               </li>
+              <li>
+                <Link to="/backoffice/members/create" className="nav-link">
+                  Crear un miembro
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

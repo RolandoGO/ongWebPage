@@ -23,6 +23,13 @@ const contentConfiguration = {
       // deleteActivity(id) -> this method should make a DELETE request to de API
     },
   },
+  slides: {
+    titleText: "una Slide",
+    onConfirmation: (id) => {
+      console.log(`actividad eliminada con id ${id}`);
+      // deleteActivity(id) -> this method should make a DELETE request to de API
+    },
+  },
 };
 
 function confirmAndDelete(id, contentType) {

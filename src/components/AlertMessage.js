@@ -19,5 +19,4 @@ function AlertMessage(
     confirmButtonText: confirmButtonText,
   });
 }
-
 export default AlertMessage;

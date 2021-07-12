@@ -1,20 +1,21 @@
 import React, { useMemo } from "react";
 import { Table, Image } from "react-bootstrap";
+import confirmAndDelete from "../utils/confirmAndDelete";
 import { BsTrash, BsPencil, BsFilePlus } from "react-icons/bs";
 import "../styles/BackOfficeSlide.css";
 import { Link } from "react-router-dom";
 
 export default function BackOfficeSlide() {
+  const CONTENT_TYPE = "slides";
   const Data = useMemo(() => {
     return (
       FakeData &&
       FakeData.map((x, i) => (
-        <tr
-          className="text-center align-middle"
-          key={i}
-        >
+        <tr className="text-center align-middle" key={i}>
           <td>{x.order}</td>
+
           <td>{x.name}</td>
+
           <td>
             <Image
               src={x.image}
@@ -28,8 +29,13 @@ export default function BackOfficeSlide() {
               <BsPencil />
             </button>
           </td>
+
           <td>
-            <button className="btn btn-danger">
+            <button
+              className="btn btn-danger"
+              // "order" must be replaced with the correct id 
+              onClick={() => confirmAndDelete(x.order, CONTENT_TYPE)}
+            >
               <BsTrash />
             </button>
           </td>

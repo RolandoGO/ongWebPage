@@ -1,4 +1,4 @@
-import AlertMessage from "../Components/AlertMessage";
+import AlertMessage from "../components/AlertMessage";
 
 const contentConfiguration = {
   news: {

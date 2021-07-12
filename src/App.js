@@ -17,12 +17,13 @@ import BackOfficeSlide from "./Components/BackOfficeSlides";
 
 const App = () => {
   //Check if a token exists in localstorage
-  const token = localStorage.getItem("token");
-  if (token) {
-    console.log("authenticated user");
-  }
+  const token = localStorage.getItem('token');
+  if(token) {
+    console.log('authenticated user');
+  };
 
   return (
+
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />

@@ -3,7 +3,7 @@ import { HeaderBackOffice } from "../components/HeaderBackOffice";
 import WellcomeMsg from "../components/WellcomeMsg";
 import BackofficeCategories from "../components/BackofficeCategories";
 import { ActivitiesScreen } from "./ActivitiesScreen";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import Users from "./Users";
 import Members from "./Members";
 

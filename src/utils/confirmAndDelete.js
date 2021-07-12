@@ -28,11 +28,8 @@ const contentConfiguration = {
 function confirmAndDelete(id, contentType) {
   const { titleText, onConfirmation } = contentConfiguration[contentType];
 
-  AlertMessage(
-    "warning",
-    `Está a punto de eliminar ${titleText}`,
-    "Una vez que lo haga no podrá deshacerlo"
-  ).then(({ value }) => {
+  AlertMessage('warning', `Está a punto de eliminar ${titleText}`,
+    'Una vez que lo haga no podrá deshacerlo', 'Eliminar', 'red').then(({ value }) => {
     if (value) {
       onConfirmation(id);
     }

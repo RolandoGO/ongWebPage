@@ -31,14 +31,24 @@ export const HeaderBackOffice = ({createNews}) => {
                   className="d-inline-block align-text-top"
                 />
               </button>
-              <ul className="navbar-nav">
-                <li className="nav-item p-2">
-                  <Link to="/backoffice/news/create" className="nav-link">
-                    Crear una novedad
-                  </Link>
-                </li>
-              </ul>
             </div>
+            <ul className="navbar-nav flex-row">
+              <li className="nav-item p-2">
+                <Link to="/backoffice/news/create" className="nav-link">
+                  Crear una novedad
+                </Link>
+              </li>
+              <li className="nav-item p-2">
+                <Link to="/backoffice/users/create" className="nav-link">
+                  Crear un usuario
+                </Link>
+              </li>
+              <li>
+                <Link to="/backoffice/members/create" className="nav-link">
+                  Crear un miembro
+                </Link>
+              </li>
+            </ul>
           </div>
         </nav>
       </header>

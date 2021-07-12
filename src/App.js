@@ -4,9 +4,9 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Home from "./screens/Home";
 import Dashboard from "./screens/Dashboard";
 import BackofficeCategories from "./components/BackofficeCategories";
+import BackOfficeSlide from "./components/BackOfficeSlides";
 import { ActivitiesScreen } from "./screens/ActivitiesScreen";
 import { MembersFormBackOffice } from "./Components/MembersFormBackOffice";
-import BackOfficeSlide from "./Components/BackOfficeSlides";
 
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";

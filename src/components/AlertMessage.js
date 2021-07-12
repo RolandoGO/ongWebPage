@@ -1,6 +1,12 @@
 const Swal = require("sweetalert2");
 
-function AlertMessage(type = "info", title = "", text = "", confirmButtonText="",confirmButtonColor="",) {
+function AlertMessage(
+  type = "info",
+  title = "",
+  text = "",
+  confirmButtonText = "",
+  confirmButtonColor = ""
+) {
   return Swal.fire({
     title: title,
     type: type,

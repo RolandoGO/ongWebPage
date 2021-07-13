@@ -20,6 +20,13 @@ const contentConfiguration = {
     onConfirmation: (id) => {
       console.log(`actividad eliminada con id ${id}`);
       // deleteActivity(id) -> this method should make a DELETE request to de API
+    }
+  },
+  testimonials: {
+    titleText: 'una testimonio',
+    onConfirmation: (id) => {
+      console.log(`testimonio eliminado con id ${id}`);
+      // deleteTestimonials(id) -> this method should make a DELETE request to de API
     },
   },
   member: {

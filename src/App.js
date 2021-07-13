@@ -3,6 +3,7 @@ import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Dashboard from "./screens/Dashboard";
 import BackofficeCategories from "./components/BackofficeCategories";
+import BackOfficeSlide from "./components/BackOfficeSlides";
 import { ActivitiesScreen } from "./screens/ActivitiesScreen";
 import BackOfficeSlide from "./components/BackOfficeSlides";
 import HomeScreen from "./screens/HomeScreen";
@@ -16,12 +17,13 @@ import HomeScreen from "./screens/HomeScreen";
 
 const App = () => {
   //Check if a token exists in localstorage
-  const token = localStorage.getItem("token");
-  if (token) {
-    console.log("authenticated user");
-  }
+  const token = localStorage.getItem('token');
+  if(token) {
+    console.log('authenticated user');
+  };
 
   return (
+
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={HomeScreen} />
@@ -35,6 +37,11 @@ const App = () => {
           exact
           path="/backoffice/activities"
           component={ActivitiesScreen}
+        />
+        <Route
+          exact
+          path="/backoffice/organization/edit"
+          component={MembersFormBackOffice}
         />
         <Route exact path="/backoffice/slides" component={BackOfficeSlide} />
         <Route exact path="/backoffice/slides/create"/>

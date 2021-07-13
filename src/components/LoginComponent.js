@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { userLoginSuccess } from "../store/auth/auth.reducer";
+import { fetchLoginThunk } from "../store/auth/auth.reducer";
 import logoONG from "../assets/LOGO-SOMOSMAS.png";
 
 const validationSchema = Yup.object({
@@ -17,7 +17,7 @@ const Login = React.memo(() => {
 
   async function onSubmit(values) {
     setBtnDisable(true);
-    dispatch(userLoginSuccess(values.email, values.password));
+    dispatch(fetchLoginThunk(values.email, values.password));
 
     setBtnDisable(false);
   }

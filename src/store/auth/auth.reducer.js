@@ -67,41 +67,42 @@ export const userLogoutSuccess = () => {
   };
 };
 
-//Reducer
 const initialState = {
-  user: {
-    user: "",
-    password: "",
-    email: "",
-    token: "",
-  },
+  user: {},
   isAuthenticated: false,
+  status: "idle",
+  error: null,
 };
 
-function authReducer(state = initialState, action) {
-  switch (action.type) {
-    case USER_REGISTER:
-      return {
-        name: action.payload.name,
-        password: action.payload.password,
-        email: action.payload.email,
-        token: action.payload.token,
-      };
-    case USER_LOGIN_SUCCESS:
-      return {
-        ...state,
-        isAuthenticated: true,
-        user: action.payload,
-      };
-    case USER_LOGOUT_SUCCESS:
-      return {
-        ...state,
-        isAuthenticated: false,
-        user: null,
-      };
-    default:
-      return state;
-  }
-}
+const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    logout: (state, action) => {
+      state.isAuthenticated = false;
+      state.user = {};
+    },
+    register: (state, action) => {
+      state.user.name = action.payload.name;
+      state.user.password = action.payload.password;
+      state.user.email = action.payload.email;
+      state.user.token = action.payload.token;
+    },
+  },
+  extraReducers: {
+    [fetchLoginThunk.pending]: (state, action) => {
+      state.status = "loading";
+    },
+    [fetchLoginThunk.fulfilled]: (state, action) => {
+      state.status = "succeeded";
+      state.user = action.payload.data;
+      state.isAuthenticated = "true";
+    },
+    [fetchLoginThunk.rejected]: (state, action) => {
+      state.status = "failed";
+      state.error = action.error.message;
+    },
+  },
+});
 
 export default authReducer;*/

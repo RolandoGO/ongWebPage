@@ -2,6 +2,19 @@
     object-fit: cover;
 }
 .sizeImg{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
+}
+.btn-primary{
+    background-color: white;
+    color:#70aff1;
+    border: #9AC9FB 1.5px solid;
+}
+a:active, a:hover .btn-primary:hover .btn-primary:active{
+    background-color:#9AC9FB ;
+    color:white
+}
+.card{
+    border:1px solid #9AC9FB;
+    height: 70vh;
 }

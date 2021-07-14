@@ -16,5 +16,11 @@ a:active, a:hover .btn-primary:hover .btn-primary:active{
 }
 .card{
     border:1px solid #9AC9FB;
-    height: 70vh;
 }
+.hover:hover{
+    background-color: #5aa7f8;
+    border: white;
+}
+.zoom:hover {
+    transform: scale(1.2); 
+  }

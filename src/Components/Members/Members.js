@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import "./Members.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {FaFacebook,FaInstagram} from "react-icons/fa"
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 const fakeData = [
   {
@@ -66,23 +66,25 @@ export const Members = () => {
   let member = useMemo(() => {
     return fakeData.map((x) => {
       return (
-        <div className="col-md-4 text-center ">
-          <div className="card my-2 py-3">
-            <img
-              className=" card-img-top mx-auto rounded-circle coverImg sizeImg"
-              src={x.image}
-              alt={x.name}
-            />
-            <div className="card-body">
-              <h5 className="card-title">{x.name}</h5>
-              <p className="card-text">{x.description}</p>
-              <a href={x.facebookUrl} className="btn btn-primary">
-                <FaFacebook/>
-              </a>
-              
-              <a  href={x.instagramUrl} className="btn btn-primary mx-3">
-                <FaInstagram/>
-              </a>
+        <div className="col-md-3 text-center d-flex">
+          <div className=" card my-2 py-3">
+            <div className="mt-3">
+              <img
+                className=" zoom card-img-top mx-auto rounded-circle coverImg sizeImg"
+                src={x.image}
+                alt={x.name}
+              />
+              <div className="card-body ">
+                <h5 className="card-title">{x.name}</h5>
+                <p className="card-text">{x.description}</p>
+                <a href={x.facebookUrl} className="btn btn-primary hover">
+                  <FaFacebook />
+                </a>
+
+                <a href={x.instagramUrl} className="btn btn-primary mx-3 hover">
+                  <FaInstagram />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -91,7 +93,7 @@ export const Members = () => {
   }, []);
   return (
     <div className="container">
-      <div className="row">{member}</div>
+      <div className="row justify-content-center">{member}</div>
     </div>
   );
 };

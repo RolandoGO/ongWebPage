@@ -1,0 +1,68 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
+  margin: 2em;
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  background: url(https://acumen.org/wp-content/uploads/Academy-580x451.jpg);
+  background-size: cover;
+}
+
+.cardImage:after {
+  content: "";
+  position: absolute;
+  top: 90%;
+  left: 0;
+  height: 100%;
+  width: 105%;
+  background: #322c2c;
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+
+.cardContent {
+  height: 70%;
+  background: #322c2c;
+  padding: 1em 1.5em;
+}
+
+.cardTitle {
+  font-family: "Titillium Web", sans-serif;
+  color: #9ac9fb;
+}
+
+.cardText {
+  font-family: "Open Sans", sans-serif;
+  color: lightgray;
+  font-weight: 300;
+  margin: 1em 0;
+  max-height: 150px;
+  overflow: auto;
+  letter-spacing: 0.75px;
+}
+
+/* .cardImage {
+  width: 50%;
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+  background: url(https://acumen.org/wp-content/uploads/Academy-580x451.jpg);
+  background-size: cover;
+}
+
+
+.cardContent {
+  width: 50%;
+  height: 160px;
+  background: #000;
+  color: #fff;
+  padding: 2em;
+} */

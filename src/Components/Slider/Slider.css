@@ -1,0 +1,21 @@
+.carousel-item img {
+  max-height: 60vh;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.4;
+}
+.carousel-item {
+  background-color: black;
+}
+.titles {
+  font-family: "Titillium Web", sans-serif !important;
+}
+.subtitles {
+  font-family: "Open Sans", sans-serif !important;
+}
+.carousel-control-next-icon {
+  visibility: hidden;
+}
+.carousel-control-prev-icon {
+  visibility: hidden;
+}

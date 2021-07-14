@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Home from "./screens/Home";
@@ -6,7 +6,8 @@ import Dashboard from "./screens/Dashboard";
 import BackofficeCategories from "./components/BackofficeCategories";
 import BackOfficeSlide from "./components/BackOfficeSlides";
 import { ActivitiesScreen } from "./screens/ActivitiesScreen";
-import { MembersFormBackOffice } from "./Components/MembersFormBackOffice";
+import { MembersFormBackOffice } from "./components/MembersFormBackOffice";
+import { getContacts } from "./services/contactService";
 
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";
@@ -21,6 +22,10 @@ const App = () => {
   if(token) {
     console.log('authenticated user');
   };
+
+  useEffect(()=>{
+    getContacts()
+  },[])
 
   return (
 

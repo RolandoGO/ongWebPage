@@ -1,5 +1,7 @@
 import React, { useMemo } from "react";
-import "./Members.css"
+import "./Members.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {FaFacebook,FaInstagram} from "react-icons/fa"
 
 const fakeData = [
   {
@@ -22,7 +24,7 @@ const fakeData = [
     name: "Flowdesk",
     image: "images/members/María Garcia.jpg",
     description:
-      "Fusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
+      "Fusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. ",
     facebookUrl: "Transgender Female",
     instagramUrl: "Transgender Person",
   },
@@ -58,21 +60,34 @@ const fakeData = [
     facebookUrl: "Gender Variant",
     instagramUrl: "Transsexual Female",
   },
-
 ];
 
 export const Members = () => {
   let member = useMemo(() => {
     return fakeData.map((x) => {
-        return(
-      <div className="col-4 text-center ">
-         <h3>{x.name}</h3>
-         <img className="rounded-circle coverImg sizeImg" src={x.image} alt={x.name}  /> 
-         <p>{x.description}</p>
-         <p>{x.facebookUrl}</p>
-         <p>{x.instagramUrl}</p>
+      return (
+        <div className="col-md-4 text-center ">
+          <div className="card my-2 py-3">
+            <img
+              className=" card-img-top mx-auto rounded-circle coverImg sizeImg"
+              src={x.image}
+              alt={x.name}
+            />
+            <div className="card-body">
+              <h5 className="card-title">{x.name}</h5>
+              <p className="card-text">{x.description}</p>
+              <a href={x.facebookUrl} className="btn btn-primary">
+                <FaFacebook/>
+              </a>
+              
+              <a  href={x.instagramUrl} className="btn btn-primary mx-3">
+                <FaInstagram/>
+              </a>
+            </div>
           </div>
-    )});
+        </div>
+      );
+    });
   }, []);
   return (
     <div className="container">

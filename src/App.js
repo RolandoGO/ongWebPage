@@ -6,7 +6,7 @@ import Dashboard from "./screens/Dashboard";
 import BackofficeCategories from "./components/BackofficeCategories";
 import BackOfficeSlide from "./components/BackOfficeSlides";
 import { ActivitiesScreen } from "./screens/ActivitiesScreen";
-import { MembersFormBackOffice } from "./Components/MembersFormBackOffice";
+import { MembersFormBackOffice } from "./components/MembersFormBackOffice";
 
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";

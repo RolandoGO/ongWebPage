@@ -1,0 +1,10 @@
+footer {
+  margin: auto;
+}
+footer .my-card {
+  height: 160px;
+  width: 250px;
+}
+footer p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}

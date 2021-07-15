@@ -1,18 +1,21 @@
 import React from "react";
 import "../styles/card.css";
+import noImagePlaceholder from "../assets/no_image_placeholder.png";
 
-function Card() {
+function Card({ image, title, description }) {
   return (
     <div className="cardContainer">
-      <div className="cardImage"></div>
+      <div
+        className="cardImage"
+        style={{
+          backgroundImage: `url(${image || noImagePlaceholder})`,
+        }}
+      ></div>
       <div className="cardContent">
         <div className="cardTitle">
-          <h4>Title</h4>
+          <h4>{title}</h4>
         </div>
-        <div className="cardText">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum
-          dolor sit amet consectetur adipisicing elit.
-        </div>
+        <div className="cardText overflow-auto">{description}</div>
       </div>
     </div>
   );

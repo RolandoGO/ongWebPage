@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import { Public, PublicRoute } from "./routes/PublicRoute";
+import { PublicRoute } from "./routes/PublicRoute";
 import { Admin } from "./routes/Admin";
 
 const App = () => {
@@ -14,9 +14,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={PublicRoute} />
         {/* Future Protected route */}
-        <Route  path="/admin" component={Admin} />       
+        <Route path="/admin" component={Admin} />
+        <Route path="/" component={PublicRoute} />
       </Switch>
     </BrowserRouter>
   );

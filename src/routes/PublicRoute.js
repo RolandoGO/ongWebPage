@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "../screens/Home";
-import News from "../screens/News";
+import News from "../screens/news";
 
 export const PublicRoute = () => {
   return (

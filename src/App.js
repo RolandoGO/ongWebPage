@@ -3,9 +3,10 @@ import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Dashboard from "./screens/Dashboard";
 import BackofficeCategories from "./components/BackofficeCategories";
-import { ActivitiesScreen } from "./screens/ActivitiesScreen";
 import BackOfficeSlide from "./components/BackOfficeSlides";
+import { ActivitiesScreen } from "./screens/ActivitiesScreen";
 import BackofficeOrganization from "./screens/BackofficeOrganizationScreen";
+import { MembersFormBackOffice } from "./Components/MembersFormBackOffice";
 
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";
@@ -16,12 +17,13 @@ import BackofficeOrganization from "./screens/BackofficeOrganizationScreen";
 
 const App = () => {
   //Check if a token exists in localstorage
-  const token = localStorage.getItem("token");
-  if (token) {
-    console.log("authenticated user");
-  }
+  const token = localStorage.getItem('token');
+  if(token) {
+    console.log('authenticated user');
+  };
 
   return (
+
     <BrowserRouter>
       <Switch>
         
@@ -36,8 +38,13 @@ const App = () => {
           path="/backoffice/activities"
           component={ActivitiesScreen}
         />
+        <Route
+          exact
+          path="/backoffice/organization/edit"
+          component={MembersFormBackOffice}
+        />
         <Route exact path="/backoffice/slides" component={BackOfficeSlide} />
-        <Route exact path="/backoffice/slides/create"/>
+        <Route exact path="/backoffice/slides/create" />
         <Route exact path="/backoffice/organization"  component={BackofficeOrganization}/>
       </Switch>
     </BrowserRouter>

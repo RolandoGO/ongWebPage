@@ -1,4 +1,5 @@
 import * as React from "react";
+import confirmAndDelete from "../utils/confirmAndDelete";
 import { Link } from "react-router-dom";
 
 function MembersList() {
@@ -12,7 +13,11 @@ function MembersList() {
           role="group"
           aria-labelledby="actions"
         >
-          <button type="button" className="btn flex-grow-0 btn-danger">
+          <button
+            type="button"
+            className="btn flex-grow-0 btn-danger"
+            onClick={() => confirmAndDelete({ id }, "member")}
+          >
             Eliminar
           </button>
           <Link

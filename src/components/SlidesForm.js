@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import InputGroup from '../Components/InputGroup';
+import InputGroup from '../components/InputGroup';
 import endsWithImageExtension from '../utils/endsWithImageExtension';
 
 function SlidesForm({ slide = { title: "", description: "", image: "", order: "" } }) {

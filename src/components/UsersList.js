@@ -1,5 +1,8 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import confirmAndDelete from "../utils/confirmAndDelete";
+
+const CONTENT_TYPE = "user";
 
 function UsersList() {
   const rows = fakeData.map(({ id, name, email }) => (
@@ -12,7 +15,11 @@ function UsersList() {
           role="group"
           aria-labelledby="actions"
         >
-          <button type="button" className="btn flex-grow-0 btn-danger">
+          <button
+            type="button"
+            className="btn flex-grow-0 btn-danger"
+            onClick={() => confirmAndDelete(id, CONTENT_TYPE)}
+          >
             Eliminar
           </button>
           <Link

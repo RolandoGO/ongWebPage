@@ -1,7 +1,7 @@
 import React from "react";
 import { Slider } from "./components/Slider/Slider";
 
-function HomeScreen() {
+function Screen() {
 	return (
 		<div>
 			<h1>HEADER</h1>
@@ -22,4 +22,4 @@ function HomeScreen() {
 	);
 }
 
-export default HomeScreen;
+export default Screen;

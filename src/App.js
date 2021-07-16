@@ -26,25 +26,26 @@ const App = () => {
 
     <BrowserRouter>
       <Switch>
+        {/* <Route exact path="/" component={Home} />
         
         <Route exact path="/backoffice" component={Dashboard} />
         <Route
           exact
           path="/backoffice/categories"
           component={BackofficeCategories}
-        />
+        /> */}
         <Route
           exact
           path="/backoffice/activities"
           component={ActivitiesScreen}
         />
-        <Route
+        {/* <Route
           exact
           path="/backoffice/organization/edit"
           component={MembersFormBackOffice}
         />
         <Route exact path="/backoffice/slides" component={BackOfficeSlide} />
-        <Route exact path="/backoffice/slides/create" />
+        <Route exact path="/backoffice/slides/create"/> */}
         <Route exact path="/backoffice/organization"  component={BackofficeOrganization}/>
       </Switch>
     </BrowserRouter>

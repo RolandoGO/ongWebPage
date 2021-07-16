@@ -5,6 +5,7 @@ import Dashboard from "./screens/Dashboard";
 import BackofficeCategories from "./components/BackofficeCategories";
 import BackOfficeSlide from "./components/BackOfficeSlides";
 import { ActivitiesScreen } from "./screens/ActivitiesScreen";
+import HomeScreen from "./screens/HomeScreen";
 import BackofficeOrganization from "./screens/BackofficeOrganizationScreen";
 import { MembersFormBackOffice } from "./Components/MembersFormBackOffice";
 
@@ -26,8 +27,7 @@ const App = () => {
 
     <BrowserRouter>
       <Switch>
-        {/* <Route exact path="/" component={Home} />
-        
+        <Route exact path="/" component={HomeScreen} />
         <Route exact path="/backoffice" component={Dashboard} />
         <Route
           exact

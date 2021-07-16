@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import InputGroup from "./InputGroup";
+import InputGroup from "../../../components/InputGroup";
 
 const ImgContainer = (props) => {
   return (

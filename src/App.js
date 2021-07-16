@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import Home from "./screens/Home";
 import Dashboard from "./screens/Dashboard";
 import BackofficeCategories from "./components/BackofficeCategories";
 import BackOfficeSlide from "./components/BackOfficeSlides";
 import { ActivitiesScreen } from "./screens/ActivitiesScreen";
-import { MembersFormBackOffice } from "./components/MembersFormBackOffice";
+import HomeScreen from "./screens/HomeScreen";
+import BackofficeOrganization from "./screens/BackofficeOrganizationScreen";
+import { MembersFormBackOffice } from "./Components/MembersFormBackOffice";
 
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";
@@ -26,7 +27,7 @@ const App = () => {
 
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={HomeScreen} />
         <Route exact path="/backoffice" component={Dashboard} />
         <Route
           exact
@@ -38,13 +39,14 @@ const App = () => {
           path="/backoffice/activities"
           component={ActivitiesScreen}
         />
-        <Route
+        {/* <Route
           exact
           path="/backoffice/organization/edit"
           component={MembersFormBackOffice}
         />
         <Route exact path="/backoffice/slides" component={BackOfficeSlide} />
-        <Route exact path="/backoffice/slides/create"/>
+        <Route exact path="/backoffice/slides/create"/> */}
+        <Route exact path="/backoffice/organization"  component={BackofficeOrganization}/>
       </Switch>
     </BrowserRouter>
   );

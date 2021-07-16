@@ -40,14 +40,16 @@ const FakeInfo = [
   },
 ];
 
+const intervalAnimation = 3500
+
 export const Slider = () => {
   const Data = useMemo(() => {
     return (
       FakeInfo &&
       FakeInfo.map((x, i) => {
         return (
-          <Carousel.Item key={i} interval={1500} className="CarouselItem">
-            <img className="d-block " src={x.image} alt={x.title} />
+          <Carousel.Item key={i} interval={intervalAnimation} >
+            <img className="d-block w-100" src={x.image} alt={x.title} />
             <Carousel.Caption>
               <h3 className="titles ">{x.title}</h3>
               <p className="subtitles">{x.description}</p>
@@ -57,9 +59,10 @@ export const Slider = () => {
       })
     );
   }, []);
+
   return (
     <React.Fragment>
-      <Carousel fade>{Data}</Carousel>
+      <Carousel  fade>{Data}</Carousel>
     </React.Fragment>
   );
 };

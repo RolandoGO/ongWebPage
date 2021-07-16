@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export default function ContactDataComponent({data}) {
+export default function ContactData({data}) {
     
     const [contactData, setContactData]=useState()
 

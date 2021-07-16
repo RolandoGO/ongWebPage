@@ -33,7 +33,7 @@ const App = () => {
           exact
           path="/backoffice/categories"
           component={BackofficeCategories}
-        /> */}
+        />
         <Route
           exact
           path="/backoffice/activities"

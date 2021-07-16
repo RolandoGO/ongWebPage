@@ -174,7 +174,7 @@ function FormularioContacto() {
 									type='button'
 									onClick={handleClick}
 									class='btn btn-primary'>
-									Enviar
+									Cancelar
 								</button>
 							</div>
 						</div>

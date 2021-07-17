@@ -7,8 +7,8 @@ import BackOfficeSlide from "./components/BackOfficeSlides";
 import { ActivitiesScreen } from "./screens/ActivitiesScreen";
 import HomeScreen from "./screens/HomeScreen";
 import BackofficeOrganization from "./screens/BackofficeOrganizationScreen";
-import { MembersFormBackOffice } from "./Components/MembersFormBackOffice";
-
+import { MembersFormBackOffice } from "./components/MembersFormBackOffice";
+import NewsWebContent from "./components/NewsWebContent"
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";
 // import Actividades from "./screens/Actividades";
@@ -27,13 +27,13 @@ const App = () => {
 
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={HomeScreen} />
+        <Route exact path="/" component={NewsWebContent} />
         <Route exact path="/backoffice" component={Dashboard} />
         <Route
           exact
           path="/backoffice/categories"
           component={BackofficeCategories}
-        /> */}
+        /> 
         <Route
           exact
           path="/backoffice/activities"

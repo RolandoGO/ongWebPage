@@ -1,9 +1,10 @@
 import React from "react";
+import { TitlesComponent } from "../../components/TitlesComponent";
 
 function index() {
   return (
     <div className="container">
-      <h1 className="text-center m-2 p-2">Nosotros</h1>
+      <TitlesComponent title="Nosotros" />
     </div>
   );
 }

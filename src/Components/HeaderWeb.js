@@ -1,19 +1,42 @@
 import React, {useState, useEffect} from 'react'
 import logo from "../assets/LOGO-SOMOSMAS.png"
-import {Link} from "react-router-dom"
+import {NavLink} from "react-router-dom"
 import "../styles/headerWebStyles.css"
 
+
+const NAV_LINKS=[
+    {
+        name:"Home",
+        path:"/home"
+    },
+    {
+        name:"Nosotros",
+        path:"/nosotros"
+    },
+    {
+        name:"Contacto",
+        path:"/contacto"
+    },
+
+]
 export default function HeaderWeb({isLogIn}) {
 
 
-    const data = ["home", "dashboard","contactos", "como"]
+    
     const [loginBtn, setLoginBtn]= useState("")
 
-    const linksArray= data.map(d=>{
+    const linksArray= NAV_LINKS.map(link=>{
         return(
             
             <div>
-                <Link to="/" className="my-link">{d}</Link>
+                <NavLink
+                    activeClassName="link-navbar-active"
+                    className="link-navbar"
+                    exact
+                    to={link.path}
+                >
+                    {link.name}
+                </NavLink>
             </div>
 
             )
@@ -30,7 +53,7 @@ export default function HeaderWeb({isLogIn}) {
     return (
         <header className="row justify-content-center">
 
-            <div className="col-2">
+            <div className="col-2 my-logo">
                 <img src={logo}></img>
             </div>
 

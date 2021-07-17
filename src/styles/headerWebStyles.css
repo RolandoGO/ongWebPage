@@ -17,17 +17,9 @@ header button:hover {
   color: white;
 }
 
-header .my-link {
-  text-decoration: none;
-  color: #9ac9fb;
-  font-weight: bolder;
+header .my-logo {
+  width: 200px;
 }
-
-header .my-link:hover {
-  border-bottom: 2px solid rgb(152, 174, 247);
-  cursor: pointer;
-}
-
 header img {
-  width: 100%;
+  width: 90%;
 }

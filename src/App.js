@@ -5,9 +5,9 @@ import Dashboard from "./screens/Dashboard";
 import BackofficeCategories from "./components/BackofficeCategories";
 import BackOfficeSlide from "./components/BackOfficeSlides";
 import { ActivitiesScreen } from "./screens/ActivitiesScreen";
+import home from "./screens/home";
 import BackofficeOrganization from "./screens/BackofficeOrganizationScreen";
 import { MembersFormBackOffice } from "./components/MembersFormBackOffice";
-import HeaderWeb from "./components/HeaderWeb"
 // import Nosotros from "./screens/Nosotros";
 // import Novedades from "./screens/Novedades";
 // import Actividades from "./screens/Actividades";
@@ -26,7 +26,7 @@ const App = () => {
 
     <BrowserRouter>
       <Switch>
-      <Route exact path="/" render={()=><HeaderWeb isLogIn={false}/>} />
+        <Route exact path="/" component={home} />
         <Route exact path="/backoffice" component={Dashboard} />
         <Route
           exact
@@ -38,13 +38,13 @@ const App = () => {
           path="/backoffice/activities"
           component={ActivitiesScreen}
         />
-        <Route
+        {/* <Route
           exact
           path="/backoffice/organization/edit"
           component={MembersFormBackOffice}
         />
         <Route exact path="/backoffice/slides" component={BackOfficeSlide} />
-        <Route exact path="/backoffice/slides/create" />
+        <Route exact path="/backoffice/slides/create"/> */}
         <Route exact path="/backoffice/organization"  component={BackofficeOrganization}/>
       </Switch>
     </BrowserRouter>

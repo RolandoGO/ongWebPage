@@ -1,0 +1,64 @@
+.carousel-item img {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.3;
+  justify-content: center;
+  margin: auto;
+  height: 100vh;
+  width: 100vw;
+}
+
+.carousel-item {
+  background-color: black;
+  position: static;
+}
+.carousel-inner {
+  margin: auto;
+  justify-content: center;
+  height: 50vh !important;
+  width: 100vw !important;
+}
+.titles {
+  font-family: "Titillium Web", sans-serif !important;
+  font-size: 1.5rem;
+}
+.subtitles {
+  font-size: 0.9rem;
+  font-family: "Open Sans", sans-serif !important;
+  text-align: center;
+}
+
+.carousel-control-next-icon {
+  visibility: visible;
+}
+.carousel-control-prev-icon {
+  visibility: visible;
+}
+
+
+@media (max-width: 600px) {
+  .carousel-inner {
+    margin: auto;
+    justify-content: center;
+    height: 30vh !important;
+    width: 100vw !important;
+  }
+  .carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.3;
+    justify-content: center;
+    margin: auto;
+    height: 40vh;
+    width: 100vw;
+  }
+  .subtitles {
+    font-size: 0.6rem;
+    font-family: "Open Sans", sans-serif !important;
+    text-align: center;
+  }
+}
+
+span {
+  visibility: hidden;
+}

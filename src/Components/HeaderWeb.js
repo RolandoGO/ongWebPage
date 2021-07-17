@@ -7,7 +7,7 @@ import "../styles/headerWebStyles.css"
 const NAV_LINKS=[
     {
         name:"Home",
-        path:"/home"
+        path:"/"
     },
     {
         name:"Nosotros",
@@ -28,7 +28,7 @@ export default function HeaderWeb({isLogIn}) {
     const linksArray= NAV_LINKS.map(link=>{
         return(
             
-            <div className="col-md-3">
+            <div className="col-md-2 mt-4">
                 <NavLink
                     activeClassName="link-navbar-active"
                     className="link-navbar"
@@ -44,32 +44,32 @@ export default function HeaderWeb({isLogIn}) {
 
     useEffect(()=>{
         let btn;
-        if(isLogIn===false) btn=<div className="col-md-2"><button>Log In</button></div>
+        if(isLogIn===false) btn=<div className="col-md-2 mt-3"><button>Log In</button></div>
         setLoginBtn(btn)
     },[isLogIn])       
         
 
     
     return (
-        <header className="container">
+        <header className="row shadow p-3 mb-5 bg-white rounded d-flex justify-content-center">
 
-            <div className="my-logo">
+            <div className="col-md-4 my-logo">
                 <img src={logo}></img>
             </div>
 
-            <div className=" row shadow p-3 mb-5 bg-white rounded">
+            
                 {linksArray}
                 {loginBtn}
-            </div>
+        </header>
+    )
+}
+     
             
                 
            
 
    
-        </header>
-    )
-}
- 
+  
   
             
  

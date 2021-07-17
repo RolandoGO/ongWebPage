@@ -26,8 +26,9 @@ const App = () => {
   return (
 
     <BrowserRouter>
+      <HeaderWeb isLogIn={false}/>
       <Switch>
-        <Route exact path="/" render={()=><HeaderWeb isLogIn={false}/>} />
+        <Route exact path="/" render={()=><h1>Home</h1>} />
         <Route exact path="/backoffice" component={Dashboard} />
         <Route
           exact

@@ -1,26 +1,33 @@
 import React from "react";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Dashboard from "../screens/Dashboard";
 import { ActivitiesScreen } from "../screens/ActivitiesScreen";
-import { MembersFormBackOffice } from "../Components/MembersFormBackOffice";
-import BackOfficeSlide from "../Components/BackOfficeSlides";
-import BackofficeCategories from "../Components/BackofficeCategories";
+import { MembersFormBackOffice } from "../components/MembersFormBackOffice";
+import BackOfficeSlide from "../components/BackOfficeSlides";
+import BackofficeCategories from "../components/BackofficeCategories";
+import BackOfficeOrganizationScreen from "../screens/BackofficeOrganizationScreen";
 export const Admin = () => {
   return (
     <Switch>
-      <Route exact path="/admin/backoffice" component={Dashboard} />
+      <Route exact path="/backoffice" component={Dashboard} />
       <Route
         exact
-        path="/admin/backoffice/categories"
+        path="/backoffice/categories"
         component={BackofficeCategories}
       />
-      <Route path="/admin/backoffice/activities" component={ActivitiesScreen} />
+      <Route exact path="/backoffice/activities" component={ActivitiesScreen} />
       <Route
-        path="/admin/backoffice/organization/edit"
+        exact
+        path="/backoffice/organization/edit"
         component={MembersFormBackOffice}
       />
-      <Route path="/admin/backoffice/slides" component={BackOfficeSlide} />
-      <Route path="/admin/backoffice/slides/create" />
+      <Route exact path="/backoffice/slides" component={BackOfficeSlide} />
+      <Route exact path="/backoffice/slides/create" />
+      <Route
+        exact
+        path="/backoffice/organization"
+        component={BackOfficeOrganizationScreen}
+      />
     </Switch>
   );
 };

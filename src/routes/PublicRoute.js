@@ -1,11 +1,13 @@
 import React from "react";
-import { Switch, Route} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Home from "../screens/Home";
+import News from "../screens/news";
 
 export const PublicRoute = () => {
   return (
     <Switch>
+      <Route exact path="/novedades" component={News} />
       <Route path="/" component={Home} />
     </Switch>
-  ); 
+  );
 };

@@ -16,7 +16,7 @@
   margin: auto;
   justify-content: center;
   height: 50vh !important;
-  width: 90vw !important;
+  width: 100vw !important;
 }
 .titles {
   font-family: "Titillium Web", sans-serif !important;
@@ -27,12 +27,15 @@
   font-family: "Open Sans", sans-serif !important;
   text-align: center;
 }
+
 .carousel-control-next-icon {
-  visibility: hidden;
+  visibility: visible;
 }
 .carousel-control-prev-icon {
-  visibility: hidden;
+  visibility: visible;
 }
+
+
 @media (max-width: 600px) {
   .carousel-inner {
     margin: auto;
@@ -54,4 +57,8 @@
     font-family: "Open Sans", sans-serif !important;
     text-align: center;
   }
+}
+
+span {
+  visibility: hidden;
 }

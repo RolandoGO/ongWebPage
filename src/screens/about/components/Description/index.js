@@ -1,7 +1,7 @@
 import * as React from "react";
-import "./Description.css";
+import "./description.css";
 
-function Description({ text }) {
+function index({ text }) {
   return (
     <section className="text-center lh-base fs-5 p-5 shadow-sm rounded-2 description">
       <p>{text}</p>
@@ -9,4 +9,4 @@ function Description({ text }) {
   );
 }
 
-export default Description;
+export default index;

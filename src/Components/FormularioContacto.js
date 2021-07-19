@@ -55,6 +55,7 @@ function FormularioContacto() {
       const {
         data: { success },
       } = await postMessage(values);
+
       if (success) {
         resetForm();
       } else {
@@ -74,11 +75,8 @@ function FormularioContacto() {
         validateOnChange={false}
         validateOnBlur={false}
       >
-        {({ handleSubmit, handleChange, values, status }) => (
-          <Form
-            onSubmit={handleSubmit}
-            className="container py-2  col-*8 col-sm-9 col-md-9 col-lg-9 mb-4"
-          >
+        {({ handleChange, values, status }) => (
+          <Form className="container py-2  col-*8 col-sm-9 col-md-9 col-lg-9 mb-4">
             <h3>Nombre</h3>
             <div className="row px-2 py-1">
               <Field name="name">

@@ -54,19 +54,25 @@ function FormularioContacto() {
     <div className="container-fluid ">
       <Formik
         initialValues={{ name: "", email: "", phone: "", message: "" }}
-        onSubmit={async (values, { resetForm }) => {
-          const {
-            data: { success },
-          } = await postMessage(values);
-          if (success) {
-            resetForm();
+        onSubmit={async (values, { resetForm, setStatus }) => {
+          try {
+            const {
+              data: { success },
+            } = await postMessage(values);
+            if (success) {
+              resetForm();
+            } else {
+              throw new Error();
+            }
+          } catch (error) {
+            setStatus({ submitError: true });
           }
         }}
         validationSchema={validationSchema}
         validateOnChange={false}
         validateOnBlur={false}
       >
-        {({ handleSubmit, handleChange, values }) => (
+        {({ handleSubmit, handleChange, values, status }) => (
           <Form
             onSubmit={handleSubmit}
             className="container py-2  col-*8 col-sm-9 col-md-9 col-lg-9 mb-4"
@@ -190,6 +196,11 @@ function FormularioContacto() {
                 </button>
               </div>
             </div>
+            {status?.submitError && (
+              <div class="alert alert-danger" role="alert">
+                Hubo un error al enviar el mensaje
+              </div>
+            )}
           </Form>
         )}
       </Formik>

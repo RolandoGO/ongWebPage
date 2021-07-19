@@ -1,9 +1,9 @@
 /* **** MOBILE AND TABLET STYLES **** */
 
 .card-grid-container {
-    width: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 @media (max-width: 768px) {

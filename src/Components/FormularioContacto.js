@@ -50,24 +50,26 @@ function FormularioContacto() {
       .required("Requerido!"),
   });
 
+  const handleSubmit = async (values, { resetForm, setStatus }) => {
+    try {
+      const {
+        data: { success },
+      } = await postMessage(values);
+      if (success) {
+        resetForm();
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      setStatus({ submitError: true });
+    }
+  };
+
   return (
     <div className="container-fluid ">
       <Formik
         initialValues={{ name: "", email: "", phone: "", message: "" }}
-        onSubmit={async (values, { resetForm, setStatus }) => {
-          try {
-            const {
-              data: { success },
-            } = await postMessage(values);
-            if (success) {
-              resetForm();
-            } else {
-              throw new Error();
-            }
-          } catch (error) {
-            setStatus({ submitError: true });
-          }
-        }}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
         validateOnChange={false}
         validateOnBlur={false}

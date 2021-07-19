@@ -1,6 +1,6 @@
 import React from "react";
 import { Slider } from "./components/Slider/Slider";
-
+import FooterWeb from "../../components/FooterWeb"
 function home() {
 	return (
 		<div>
@@ -17,7 +17,7 @@ function home() {
 					<h2 className='text-center'>Testimonios</h2>
 				</div>
 			</div>
-			<h1>FOOTER</h1>
+			<FooterWeb/>
 		</div>
 	);
 }

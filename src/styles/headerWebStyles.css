@@ -1,0 +1,25 @@
+header button {
+  margin: 5px;
+  outline: none;
+  border: none;
+  border-radius: 5%;
+  padding: 5px;
+  width: 100px;
+  background-color: #f9fbfc;
+  border: 3px solid #9ac9fb;
+  color: #9ac9fb;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+header button:hover {
+  background-color: #b9d7f8;
+  color: white;
+}
+
+header .my-logo {
+  width: 200px;
+}
+header img {
+  width: 90%;
+}

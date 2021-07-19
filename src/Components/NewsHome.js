@@ -6,6 +6,7 @@ export const NewsHome = () => {
   const [ news, setNews ] = useState([]);
   const [ errorNews, seterrorNews ] = useState(null);
 
+  // Integration API
   const getNewsNotices = async () => {
     try {
       const resultado = await getNews.getNews();

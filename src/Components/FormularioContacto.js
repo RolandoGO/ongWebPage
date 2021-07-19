@@ -54,7 +54,14 @@ function FormularioContacto() {
     <div className="container-fluid ">
       <Formik
         initialValues={{ name: "", email: "", phone: "", message: "" }}
-        onSubmit={postMessage}
+        onSubmit={async (values, { resetForm }) => {
+          const {
+            data: { success },
+          } = await postMessage(values);
+          if (success) {
+            resetForm();
+          }
+        }}
         validationSchema={validationSchema}
         validateOnChange={false}
         validateOnBlur={false}

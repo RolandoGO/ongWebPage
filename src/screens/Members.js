@@ -1,13 +1,10 @@
-import * as React from "react";
-import { HeaderBackOffice } from "../components/HeaderBackOffice";
-import MembersList from "../components/MembersList";
+import React from "react";
 
 function Members() {
   return (
-    <>
-      <HeaderBackOffice />
-      <MembersList />
-    </>
+    <div>
+      <h1>Members</h1>
+    </div>
   );
 }
 

@@ -2,7 +2,7 @@ import * as React from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import InputGroup from "./InputGroup";
-import "../styles/NewsForm.css";
+import "../styles/newsForm.css";
 
 const ImgContainer = (props) => {
   if (props.errors.image || props.imgUrl === "") {

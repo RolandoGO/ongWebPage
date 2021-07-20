@@ -29,7 +29,7 @@ export const ActivitiesForm = ({ data }) => {
     onSubmit: (values) => {
       // data ? "POST​/activities" : "PUT/activities​/{id}";
       console.log(values);
-      alertMessage("success", "Agregado exitosamente", "");
+      alertMessage("success", "Agregado exitosamente", "","OK","green");
     },
   });
   return (

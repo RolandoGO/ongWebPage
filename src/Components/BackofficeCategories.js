@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BackofficeCategoriesListTable } from "../components/BackofficeCategoriesListTable";
+import { BackofficeCategoriesListTable } from "./BackofficeCategoriesListTable";
 
 export default function BackofficeCategories() {
   //Mok data waiting for the response of the api endpoint
@@ -24,10 +24,19 @@ export default function BackofficeCategories() {
     // return ()=> abortControl.abort()
   }, []);
 
+  const handleDelete = useCallback(
+    (categorie) => deleteCategorie(categorie),
+    [data]
+  );
+
   const handleEdit = useCallback(
     (categorie) => editCategorie(categorie),
     [data]
   );
+
+  function deleteCategorie(categorie) {
+    console.log("delete" + categorie.name);
+  }
 
   function editCategorie(categorie) {
     console.log("edit" + categorie.name);
@@ -43,7 +52,11 @@ export default function BackofficeCategories() {
         <Link to="/backoffice/categoríe/edition">Edit Categorie</Link>
       </div>
 
-      <BackofficeCategoriesListTable data={data} handleEdit={handleEdit} />
+      <BackofficeCategoriesListTable
+        data={data}
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
+      />
     </div>
   );
 }

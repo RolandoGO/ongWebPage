@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-// import { PublicRoute } from "./routes/PublicRoute";
-// import { Admin } from "./routes/Admin";
+import { PublicRoute } from "./routes/PublicRoute";
+import { Admin } from "./routes/Admin";
 
 
 const App = () => {
@@ -17,6 +17,7 @@ const App = () => {
       <Switch>
       
         <Route path="/backoffice" component={Admin} />
+        <Route path="/" component={PublicRoute} />
         
       </Switch>
     </BrowserRouter>

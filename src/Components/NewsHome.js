@@ -23,8 +23,13 @@ export const NewsHome = () => {
   const memoNews = useMemo(
     () =>
       news.map((newNotice) => {
+        console.log(newNotice);
         return (
-          // <NewsHomeCard key={newNotice.id} newNotice={newNotice} /> Place Card component, Ticket 98 in progress
+          <Card
+            key={newNotice.id}
+            title={newNotice.name}
+            image={newNotice.image}
+          />
         );
       }),
     [news]

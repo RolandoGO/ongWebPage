@@ -3,23 +3,16 @@ import { getNews } from "../services/newsService";
 import { LoaderSpinner } from "../components/LoaderSpinner";
 
 export const NewsHome = () => {
-  const [news, setNews] = useState([]);
-  const [errorNews, seterrorNews] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [{ news, status }, setNews] = useState({ news: [], status: "loading" });
 
   // Integration API
   const getNewsNotices = async () => {
     try {
-      setIsLoading(true);
       const resultado = await getNews();
       const { data } = resultado;
-      const news = data.data;
-      setNews(news);
+      setNews({ news: data.data, status: "complete" });
     } catch (error) {
-      const errorNews = "Upsss... No se pudo cargar el contenido.";
-      seterrorNews(errorNews);
-    } finally {
-      setIsLoading(false);
+      setNews((state) => ({ ...state, status: "failed" }));
     }
   };
 
@@ -37,23 +30,23 @@ export const NewsHome = () => {
     [news]
   );
 
-  const memoOrError = !errorNews ? (
-    memoNews
-  ) : (
-    <p className="alert alert-danger text-center">{errorNews}</p>
-  );
-
-  if (isLoading) {
-    return (
+  const contentToRender = {
+    loading: (
       <div className="d-flex justify-content-center h-100 align-items-center">
         <LoaderSpinner />
       </div>
-    );
-  }
+    ),
+    complete: memoNews,
+    failed: (
+      <p className="alert alert-danger text-center">
+        Upsss... No se pudo cargar el contenido.
+      </p>
+    ),
+  };
 
   return (
     <div className="container">
-      <div className="row mt-5">{memoOrError}</div>
+      <div className="row mt-5">{contentToRender[status]}</div>
     </div>
   );
 };

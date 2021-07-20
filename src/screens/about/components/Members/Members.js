@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
-import "./Members.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./members.css";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const fakeData = [

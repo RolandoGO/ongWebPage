@@ -5,7 +5,7 @@ import BackofficeCategories from "../components/BackofficeCategories";
 import { ActivitiesScreen } from "./ActivitiesScreen";
 import { Switch, Route, Link } from "react-router-dom";
 import Users from "./Users";
-import Members from "./Members";
+// import Members from "./Members";
 
 function Dashboard() {
   return (
@@ -26,7 +26,7 @@ function Dashboard() {
             component={ActivitiesScreen}
           />
           <Route exact path="/backoffice/users" component={Users} />
-          <Route exact path="/backoffice/members" component={Members} />
+          {/* <Route exact path="/backoffice/members" component={Members} /> */}
         </Switch>
       </div>
     </>

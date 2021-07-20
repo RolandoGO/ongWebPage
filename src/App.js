@@ -18,7 +18,6 @@ const App = () => {
       
         <Route path="/backoffice" component={Admin} />
         <Route path="/" component={PublicRoute} />
-        
       </Switch>
     </BrowserRouter>
   );

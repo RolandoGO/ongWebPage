@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { getNews } from "../services/newsService";
 import { LoaderSpinner } from "../components/LoaderSpinner";
+import Card from "./Card";
 
 export const NewsHome = () => {
   const [{ news, status }, setNews] = useState({ news: [], status: "loading" });

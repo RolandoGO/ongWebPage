@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import getNews from '../services/newsService';
+import { getNews } from "../services/newsService";
 
 export const NewsHome = () => {
 
@@ -9,7 +9,7 @@ export const NewsHome = () => {
   // Integration API
   const getNewsNotices = async () => {
     try {
-      const resultado = await getNews.getNews();
+      const resultado = await getNews();
       const { data } = resultado;
       const news = data.data;
       setNews(news);

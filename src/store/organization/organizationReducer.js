@@ -4,14 +4,14 @@ import {
 	postOrganization,
 } from "../../services/organizationService";
 
-const getOrganization = createAsyncThunk(
+const getOrganizationThunk = createAsyncThunk(
 	"organization/getOrganization",
 	async () => {
 		return await getOrganization(); //method in newsService.js
 	}
 );
 
-const postOrganization = createAsyncThunk(
+const postOrganizationThunk = createAsyncThunk(
 	"organization/postOrganization",
 	async () => {
 		return await postOrganization(); //method in newsService.js
@@ -28,26 +28,28 @@ const organizationSlice = createSlice({
 	},
 	extraReducers: {
 		//getOrganizationThunk
-		[getOrganization.pending]: (state, action) => {
+		[getOrganizationThunk.pending]: (state, action) => {
 			state.loading = true;
 		},
-		[getOrganization.fulfilled]: (state, action) => {
+		[getOrganizationThunk.fulfilled]: (state, action) => {
 			state.organization = action.payload;
 			state.loading = false;
 		},
-		[getOrganization.rejected]: (state, action) => {
+		[getOrganizationThunk.rejected]: (state, action) => {
 			state.error = action.payload;
 		},
 		//postOrganizationThunk
-		[postOrganization.pending]: (state, action) => {
+		[postOrganizationThunk.pending]: (state, action) => {
 			state.loading = true;
 		},
-		[postOrganization.fulfilled]: (state, action) => {
+		[postOrganizationThunk.fulfilled]: (state, action) => {
 			state.newOrganization = action.payload;
 			state.loading = false;
 		},
-		[postOrganization.rejected]: (state, action) => {
+		[postOrganizationThunk.rejected]: (state, action) => {
 			state.error = action.payload;
 		},
 	},
 });
+
+export default organizationSlice.reducer

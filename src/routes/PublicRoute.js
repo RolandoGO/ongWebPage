@@ -5,10 +5,12 @@ import News from "../screens/news";
 import About from "../screens/about";
 import Details from "../screens/news/details";
 import Contact from "../screens/contact";
+import Testimonials from "../screens/testimonials";
 
 export const PublicRoute = () => {
   return (
     <Switch>
+      <Route exact path="/testimonios" component={Testimonials} />
       <Route exact path="/contacto" component={Contact} />
       <Route exact path="/novedades" component={News} />
       <Route exact path="/nosotros" component={About} />

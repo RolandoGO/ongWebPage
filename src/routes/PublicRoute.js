@@ -1,14 +1,16 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "../screens/Home";
-import News from "../screens/news";
+import News from "../screens/News";
 import About from "../screens/about";
 import Details from "../screens/news/details";
 import Contact from "../screens/contact";
+import Donation from "../screens/donation";
 
 export const PublicRoute = () => {
   return (
     <Switch>
+      <Route exact path="/donar" component={Donation} />
       <Route exact path="/contacto" component={Contact} />
       <Route exact path="/novedades" component={News} />
       <Route exact path="/nosotros" component={About} />

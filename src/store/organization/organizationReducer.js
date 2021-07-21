@@ -18,7 +18,7 @@ const postOrganization = createAsyncThunk(
 	}
 );
 
-const newSlice = createSlice({
+const organizationSlice = createSlice({
 	name: "organization",
 	initialState: {
 		organization: {},

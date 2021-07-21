@@ -5,6 +5,7 @@ function index() {
   return (
     <div>
       <TitlesComponent title={"Gracias"} />
+      <h3 className="text-center">Texto de agredecimiento</h3>
     </div>
   );
 }

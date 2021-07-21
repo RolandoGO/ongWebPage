@@ -1,6 +1,6 @@
 import axiosInstance from "./apiService";
 
-export const getTestimonials = () => axiosInstance.get("/testimonials");
+export const getTestimonials = () => axiosInstance.get("/testimonials")
 
 export const postTestimonials = (testimonialsData) =>
   axiosInstance.post("/testimonials", {

@@ -1,7 +1,7 @@
 import React from "react";
-import News from "./News";
+import News from "./news";
 
-const Index = () => {
+const index = () => {
   return <News />;
 };
-export default Index;
+export default index;

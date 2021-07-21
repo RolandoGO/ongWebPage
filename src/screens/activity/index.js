@@ -4,8 +4,8 @@ import { TitlesComponent } from "../../Components/TitlesComponent";
 function Activity({ id }) {
   return (
     <TitlesComponent
-      img={"https://source.unsplash.com/random"}
-      title={"Lorem ipsum dolor sit amet consectetur"}
+      img="https://source.unsplash.com/random"
+      title="Lorem ipsum dolor sit amet consectetur"
     />
   );
 }

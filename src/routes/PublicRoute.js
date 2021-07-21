@@ -5,6 +5,7 @@ import News from "../screens/news";
 import About from "../screens/about";
 import Details from "../screens/news/details";
 import Contact from "../screens/contact";
+import Activity from "../screens/activity";
 
 export const PublicRoute = () => {
   return (

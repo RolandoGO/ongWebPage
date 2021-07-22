@@ -13,6 +13,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      
       <Switch>
         {/* Future Protected route */}
         <Route path="/backoffice" component={Admin} />

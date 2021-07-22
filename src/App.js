@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { Route, BrowserRouter } from "react-router-dom";
 import { PublicRoute } from "./routes/PublicRoute";
 import { Admin } from "./routes/Admin";
-
+import { AnimatedSwitch } from "react-router-transition";
 
 const App = () => {
   //Check if a token exists in localstorage
@@ -14,13 +14,15 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      
-      <Switch>
-      
+      <AnimatedSwitch
+        atEnter={{ opacity: 0 }}
+        atLeave={{ opacity: 1 }}
+        atActive={{ opacity: 1 }}
+      >
+        {/* Future Protected route */}
         <Route path="/backoffice" component={Admin} />
         <Route path="/" component={PublicRoute} />
-        
-      </Switch>
+      </AnimatedSwitch>
     </BrowserRouter>
   );
 };

@@ -1,27 +1,26 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Home from "../screens/Home";
-import News from "../screens/news";
-import About from "../screens/about";
-import Details from "../screens/news/details";
+import News from "../screens/News";
 import Contact from "../screens/contact";
+import { AnimatedSwitch } from "react-router-transition";
 import FooterWeb from "../components/FooterWeb";
-import HeaderWeb from "../components/HeaderWeb";
 
+import HeaderWeb from "../components/HeaderWeb";
 export const PublicRoute = () => {
   return (
-    <div>
-      <HeaderWeb isLogIn={false} />
-
-      <Switch>
+    <>
+      <HeaderWeb />
+      <AnimatedSwitch
+        atEnter={{ opacity: 0 }}
+        atLeave={{ opacity: 1 }}
+        atActive={{ opacity: 1 }}
+      >
         <Route exact path="/contacto" component={Contact} />
         <Route exact path="/novedades" component={News} />
-        <Route exact path="/nosotros" component={About} />
-        <Route exact path="/novedades/:id" component={Details} />
         <Route path="/" component={Home} />
-      </Switch>
-
+      </AnimatedSwitch>
       <FooterWeb />
-    </div>
+    </>
   );
 };

@@ -1,17 +1,19 @@
 import React from 'react';
 import { useMemo } from 'react';
 
-export const ActivitiesHome = (props) => {
+export const ActivitiesHome = ({activities}) => {
 
 
   const memoActivities = useMemo(
     () =>
-    news.map((newActivitie) => {
-        return (
-        //   <CardActivities key={activities.id} activities={activities} /> Place Card component, Ticket 98 in progress
+    activities.map((activity) => {
+        return(
+          <div key={activity.id}>
+            <p>{activity.name}</p>
+          </div>
         );
       }),
-    [props]
+    [activities]
   );
 
   return (

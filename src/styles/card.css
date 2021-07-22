@@ -1,10 +1,23 @@
 /* **** MOBILE AND TABLET STYLES **** */
 
+.card-grid-container {
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+  .card-grid-container {
+    text-align: center;
+    display: block;
+  }
+}
+
 .cardContainer {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  height: 500px;
+  width: auto;
+  height: 300px;
   margin: 1em;
 }
 
@@ -67,9 +80,9 @@
   }
 
   .cardImage:after {
-    top: 10%;
+    top: 9%;
     left: 88%;
-    width: 100%;
+    width: 103%;
     -webkit-transform: rotate(-80deg);
     -moz-transform: rotate(-80deg);
     transform: rotate(-80deg);

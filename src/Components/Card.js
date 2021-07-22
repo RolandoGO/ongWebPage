@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "../styles/card.css";
 import noImagePlaceholder from "../assets/no_image_placeholder.png";
 
@@ -15,7 +15,7 @@ function Card({ image, title, description }) {
         <div className="cardTitle">
           <h4>{title}</h4>
         </div>
-        <div className="cardText overflow-auto">{description}</div>
+        <div className="cardText overflow-auto"><Fragment>{description}</Fragment></div>
       </div>
     </div>
   );

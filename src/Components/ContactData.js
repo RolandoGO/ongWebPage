@@ -9,11 +9,11 @@ export default function ContactData({data}) {
         if(data){
             aux= data.map(contact=>{
                 return(
-                        <div key={contact.id} className="col-md-3 bg-light m-1 d-fle flex-column shadow-lg p-3 mb-5 bg-white rounded">
-                            <div><p>Nombre:</p></div>
-                            <div><p>Email:</p></div>
-                            <div><p>Telefono:</p></div>
-                            <div><p>Direccion:</p></div>
+                        <div key={contact.id} className="col-md-2 bg-light m-1 d-fle flex-column shadow-lg p-3 mb-5 bg-white rounded ">
+                            <div><strong>Nombre: </strong><p> {contact.name}</p></div>
+                            <div><strong>Email: </strong><p>{contact.email}</p></div>
+                            <div><strong>Telefono: </strong><p>{contact.phone}</p></div>
+                            <div style={{wordWrap:"break-word"}}><strong>Mensaje: </strong><p>{contact.message}</p></div>
                         </div>
                     )
                 })
@@ -34,7 +34,7 @@ export default function ContactData({data}) {
 
 
     return (
-        <div className="container border border-dark bg-light">
+        <div>
 
             <div>
                 <h2 className="border-bottom border-dark w-25"> <small className="text-muted">Lista de </small>contactos</h2>

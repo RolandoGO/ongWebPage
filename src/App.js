@@ -5,6 +5,7 @@ import { PublicRoute } from "./routes/PublicRoute";
 import { Admin } from "./routes/Admin";
 import { AnimatedSwitch } from "react-router-transition";
 
+
 const App = () => {
   //Check if a token exists in localstorage
   const token = localStorage.getItem("token");

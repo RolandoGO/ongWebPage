@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Slider } from "./components/Slider/Slider";
 import "../../styles/HomeTestimonialStyles.css"
 import { getTestimonials } from "../../services/testimonials";
-
+import handleHtmlText from "../../utils/textToHtmlFunction"
 
 
 function Home() {
@@ -20,7 +20,7 @@ function Home() {
 
 	return (
 		<div>
-			<h1>HEADER</h1>
+			
 			<Slider />
 			<div className='container-fluid'>
 				<div className='row'>
@@ -36,7 +36,7 @@ function Home() {
 					
 				</div>
 			</div>
-			<h1>FOOTER</h1>
+			
 		</div>
 	);
 }
@@ -44,6 +44,7 @@ function Home() {
 export default Home;
 
 
+//This function takes the first four testimonials and pass it to the setTestimonialData to set the state. In case of error set the state whit a error message
 
 async function handleHomeTestimonials(setTestimonialData){
 	
@@ -59,7 +60,7 @@ async function handleHomeTestimonials(setTestimonialData){
 				<div key={testimonials.id} className="col-md-3 bg-light d-fle flex-column shadow-lg p-3 mb-5 bg-white rounded ">
 					<div><strong>Nombre: </strong><p> {testimonials.name}</p></div>
 					<div className="homeTestimonials" style={{backgroundImage:`url(${testimonials.image})`}}></div>
-					<div style={{wordWrap:"break-word"}}>{testimonials.description}</div>
+					<div style={{wordWrap:"break-word"}} dangerouslySetInnerHTML={handleHtmlText(testimonials.description)}></div>
 				</div>
 			)
 		})

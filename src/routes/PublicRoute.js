@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "../screens/Home";
-import News from "../screens/news";
-import About from "../screens/about";
+import News from "../screens/News";
+import About from "../screens/About";
 import Details from "../screens/news/details";
 import Contact from "../screens/contact";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { TitlesComponent } from "../../components/TitlesComponent";
 
-function index() {
+function Index() {
   return (
     <div className="container">
       <TitlesComponent title="Nosotros" />
@@ -9,4 +9,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

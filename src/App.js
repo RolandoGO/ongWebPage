@@ -4,6 +4,7 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { PublicRoute } from "./routes/PublicRoute";
 import { Admin } from "./routes/Admin";
 
+
 const App = () => {
   //Check if a token exists in localstorage
   const token = localStorage.getItem("token");
@@ -15,9 +16,10 @@ const App = () => {
     <BrowserRouter>
       
       <Switch>
-        {/* Future Protected route */}
+      
         <Route path="/backoffice" component={Admin} />
         <Route path="/" component={PublicRoute} />
+        
       </Switch>
     </BrowserRouter>
   );

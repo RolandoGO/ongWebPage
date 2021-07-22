@@ -4,7 +4,7 @@ import { Slider } from "./components/Slider/Slider";
 function home() {
 	return (
 		<div>
-			<h1>HEADER</h1>
+			
 			<Slider />
 			<div className='container-fluid'>
 				<div className='row'>
@@ -17,7 +17,7 @@ function home() {
 					<h2 className='text-center'>Testimonios</h2>
 				</div>
 			</div>
-			<h1>FOOTER</h1>
+			
 		</div>
 	);
 }

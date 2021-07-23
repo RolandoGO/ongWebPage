@@ -2,9 +2,13 @@ import React, { useCallback } from "react";
 import { Redirect, Route } from "react-router-dom";
 
 function ProtectedBackOffice({ component: Comp, ...rest }) {
-  // Reemplazar por resultado real
-  const Admin = true;
-
+  
+  const result = auth.role_id;
+  if (result === 1) {
+    Admin === true;
+  } else {
+    Admin === false;
+  }
   const authUser = useCallback(() => {
     if (Admin) {
       return <Comp />;

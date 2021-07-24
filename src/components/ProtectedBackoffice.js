@@ -2,23 +2,12 @@ import React, { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { Redirect, Route } from "react-router-dom";
 
+const ROLE_ADMIN = 1;
 function ProtectedBackOffice({ component: Comp, ...rest }) {
-  const Auth= useSelector((state) => state.userInfo)
-  const result = Auth.user.role_id;
-  if (result === 1) {
-    Admin === true;
-  } else {
-    Admin === false;
-  }
-  const authUser = useCallback(() => {
-    if (Admin) {
-      return <Comp />;
-    } else {
-      return <Redirect to="/" />;
-    }
-  }, [Admin, Comp]);
-
-  return <Route {...rest}>{authUser}</Route>;
+  const {user:{role_id}}= useSelector((state) => state.userInfo)  
+  const renderComponents = role_id === ROLE_ADMIN ? <Comp /> : <Redirect to="/" />
+  
+  return <Route {...rest}>{renderComponents}</Route>;
 }
 
 export default ProtectedBackOffice;

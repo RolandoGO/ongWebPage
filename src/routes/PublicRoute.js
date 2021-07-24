@@ -10,6 +10,7 @@ import Contact from "../screens/contact";
 import Activity from "../screens/activity";
 import Testimonials from "../screens/testimonials";
 import Activities from "../screens/activities";
+import Thanks from "../screens/thanks";
 import FooterWeb from "../components/FooterWeb";
 import HeaderWeb from "../components/HeaderWeb";
 
@@ -22,6 +23,7 @@ export const PublicRoute = () => {
         atLeave={{ opacity: 1 }}
         atActive={{ opacity: 1 }}
       >
+        <Route exact path="/gracias" component={Thanks} />
         <Route exact path="/testimonios" component={Testimonials} />
         <Route exact path="/contacto" component={Contact} />
         <Route exact path="/novedades" component={News} />

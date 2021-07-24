@@ -1,8 +1,7 @@
-import axiosInstance from ".apiService";
+import axiosInstance from "./apiService";
 
-export const slideList = () => {
-  return axiosInstance.get("/slides");
-};
+export const slideList = async () => await axiosInstance.get("/slides");
+
 
 export const newSlide = (
   slideData = {

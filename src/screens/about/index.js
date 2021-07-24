@@ -3,7 +3,7 @@ import { TitlesComponent } from "../../components/TitlesComponent";
 import Description from "./components/description";
 import Members from "./components/members";
 
-function index() {
+function Index() {
   return (
     <div className="container">
       <TitlesComponent title="Nosotros" />
@@ -13,4 +13,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

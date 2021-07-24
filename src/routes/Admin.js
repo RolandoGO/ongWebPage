@@ -1,14 +1,20 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Dashboard from "../screens/Dashboard";
 import { ActivitiesScreen } from "../screens/ActivitiesScreen";
 import { MembersFormBackOffice } from "../components/MembersFormBackOffice";
 import BackOfficeSlide from "../components/BackOfficeSlides";
 import BackofficeCategories from "../components/BackofficeCategories";
 import BackOfficeOrganizationScreen from "../screens/BackofficeOrganizationScreen";
+import { AnimatedSwitch } from "react-router-transition";
+
 export const Admin = () => {
   return (
-    <Switch>
+    <AnimatedSwitch
+      atEnter={{ opacity: 0 }}
+      atLeave={{ opacity: 1 }}
+      atActive={{ opacity: 1 }}
+    >
       <Route exact path="/backoffice" component={Dashboard} />
       <Route
         exact
@@ -28,6 +34,6 @@ export const Admin = () => {
         path="/backoffice/organization"
         component={BackOfficeOrganizationScreen}
       />
-    </Switch>
+    </AnimatedSwitch>
   );
 };

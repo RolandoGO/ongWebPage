@@ -1,5 +1,5 @@
 import React from "react";
-import confirmAndDelete from "../utils/confirmAndDelete";
+import confirmAndDelete from "../../../utils/confirmAndDelete";
 
 export const TestimonialCardScreen = ({ testimonial }) => {
   const { img, name, id  } = testimonial;

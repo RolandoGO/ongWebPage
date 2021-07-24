@@ -1,22 +1,19 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import Card from '../components/Card';
-import { getNews } from '../services/newsService';
+import React, { useEffect, useState, useMemo } from "react";
+import { getNews } from "../services/newsService";
+import { LoaderSpinner } from "../components/LoaderSpinner";
+import Card from "./Card";
 
 export const NewsHome = () => {
-
-  const [ news, setNews ] = useState([]);
-  const [ errorNews, seterrorNews ] = useState(null);
+  const [{ news, status }, setNews] = useState({ news: [], status: "loading" });
 
   // Integration API
   const getNewsNotices = async () => {
     try {
-      const response = await getNews();
-      const { data } = response;
-      const news = data.data;
-      setNews(news);
+      const resultado = await getNews();
+      const { data } = resultado;
+      setNews({ news: data.data, status: "complete" });
     } catch (error) {
-      const errorNews = "Upsss... No se pudo cargar el contenido."
-      seterrorNews(errorNews);
+      setNews((state) => ({ ...state, status: "failed" }));
     }
   };
 
@@ -24,29 +21,38 @@ export const NewsHome = () => {
     getNewsNotices();
   }, []);
 
-
   const memoNews = useMemo(
     () =>
-    news.map((newNotice) => {
-      console.log(newNotice);
+      news.map((newNotice) => {
+        console.log(newNotice);
         return (
-          <Card key={newNotice.id} title={newNotice.name} image={newNotice.image}/> 
+          <Card
+            key={newNotice.id}
+            title={newNotice.name}
+            image={newNotice.image}
+          />
         );
       }),
     [news]
   );
 
-  const memoOrError = !errorNews 
-    ? 
-    <div className="row card-grid-container">
-      {memoNews}
-    </div> 
-    : 
-    <p className="alert alert-danger text-center">{errorNews}</p>;
+  const contentToRender = {
+    loading: (
+      <div className="d-flex justify-content-center h-100 align-items-center">
+        <LoaderSpinner />
+      </div>
+    ),
+    complete: memoNews,
+    failed: (
+      <p className="alert alert-danger text-center">
+        Upsss... No se pudo cargar el contenido.
+      </p>
+    ),
+  };
 
   return (
     <div className="container">
-          {memoOrError}
+      <div className="row mt-5">{contentToRender[status]}</div>
     </div>
-  )
+  );
 };

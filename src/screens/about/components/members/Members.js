@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import "./Members.css";
+import "./members.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 
@@ -57,7 +57,7 @@ const fakeData = [
   },
 ];
 
-export const Members = () => {
+function Members() {
   let member = useMemo(() => {
     return fakeData.map((x) => {
       return (
@@ -95,4 +95,6 @@ export const Members = () => {
       <div className="row justify-content-center">{member}</div>
     </div>
   );
-};
+}
+
+export default Members;

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getNews, createNews, editNews ,deleteNews} from '../../services/newsService'
 
-const getNewsThunk = createAsyncThunk("news/getNewsThunk", async () => {
+export const getNewsThunk = createAsyncThunk("news/getNewsThunk", async () => {
 	return await getNews(); //method in newsService.js
 });
 
@@ -31,7 +31,7 @@ const newsSlice = createSlice({
 			state.loading = true;
 		},
 		[getNewsThunk.fulfilled]: (state, action) => {
-			state.newsList = action.payload;
+			state.newsList = action.payload.data.data;
 			state.loading = false;
 		},
 		[getNewsThunk.rejected]: (state, action) => {

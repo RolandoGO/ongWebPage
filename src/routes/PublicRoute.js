@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { AnimatedSwitch } from "react-router-transition";
 
 import Home from "../screens/Home";
-import News from "../screens/News";
+import News from "../screens/news";
 import About from "../screens/about";
 import Details from "../screens/news/details";
 import Contact from "../screens/contact";

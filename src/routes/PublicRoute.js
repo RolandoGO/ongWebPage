@@ -3,10 +3,12 @@ import { Route } from "react-router-dom";
 import { AnimatedSwitch } from "react-router-transition";
 
 import Home from "../screens/Home";
-import News from "../screens/news";
+import News from "../screens/News";
 import About from "../screens/about";
 import Details from "../screens/news/details";
 import Contact from "../screens/contact";
+import Donation from "../screens/donation";
+
 import Activity from "../screens/activity";
 import Testimonials from "../screens/testimonials";
 import Activities from "../screens/activities";
@@ -38,6 +40,7 @@ export const PublicRoute = () => {
             return <Activity id={id} />;
           }}
         />
+        <Route exact path="/donar" component={Donation} />
         <Route path="/" component={Home} />
       </AnimatedSwitch>
       <FooterWeb />

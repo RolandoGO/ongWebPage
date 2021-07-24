@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Slider } from "./components/Slider/Slider";
-import { NewsHome } from "./components/NewsHome";
+// import { NewsHome } from "./components/NewsHome";
 import { ActivitiesHome } from "./components/ActivitiesHome";
 import {
   ListNews,
@@ -26,7 +26,7 @@ function Home() {
         </div>
         <div className="row">
           <h2 className="text-center">Últimas Novedades</h2>
-          <NewsHome news={newsList} error={error} />
+          {/* <NewsHome news={newsList} error={error} /> */}
         </div>
         <div className="row">
           <h2 className="text-center">Últimas Actividades</h2>

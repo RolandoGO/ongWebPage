@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { LoaderSpinner } from "../../../components/LoaderSpinner";
-import { TitlesComponent } from "../../../Components/TitlesComponent";
-import { getSingleNew } from "../../../services/newsService";
-import NewsWebContent from "../../../Components/NewsWebContent";
+import { TitlesComponent } from "../../../components/TitlesComponent";
+// import { getSingleNew } from "../../../services/newsService";
+import NewsWebContent from "../../../components/NewsWebContent";
 
 function Details() {
   const [{ newsDetails, status }, setNewsDetails] = React.useState({
@@ -15,7 +15,8 @@ function Details() {
 
   const getNewsDetails = async (id) => {
     try {
-      const { data } = await getSingleNew(id); //the method is being created in ticket #119
+      //const { data } = await getSingleNew(id); //the method is being created in ticket #119
+      const data = {data:[]};
       setNewsDetails({ newsDetails: data.data, status: "complete" });
     } catch (error) {
       setNewsDetails((state) => ({ ...state, status: "failed" }));

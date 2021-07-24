@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TitlesComponent } from "../../Components/TitlesComponent";
+import { TitlesComponent } from "../../components/TitlesComponent";
 
 function Activity({ id }) {
   return (

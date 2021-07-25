@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/ongWebPage/static/css/main.8a6aab4b.chunk.css",
+    "main.js": "/ongWebPage/static/js/main.d56195dc.chunk.js",
+    "main.js.map": "/ongWebPage/static/js/main.d56195dc.chunk.js.map",
+    "runtime-main.js": "/ongWebPage/static/js/runtime-main.760382e1.js",
+    "runtime-main.js.map": "/ongWebPage/static/js/runtime-main.760382e1.js.map",
+    "static/css/2.8d40caf3.chunk.css": "/ongWebPage/static/css/2.8d40caf3.chunk.css",
+    "static/js/2.e99876a9.chunk.js": "/ongWebPage/static/js/2.e99876a9.chunk.js",
+    "static/js/2.e99876a9.chunk.js.map": "/ongWebPage/static/js/2.e99876a9.chunk.js.map",
+    "index.html": "/ongWebPage/index.html",
+    "static/css/2.8d40caf3.chunk.css.map": "/ongWebPage/static/css/2.8d40caf3.chunk.css.map",
+    "static/css/main.8a6aab4b.chunk.css.map": "/ongWebPage/static/css/main.8a6aab4b.chunk.css.map",
+    "static/js/2.e99876a9.chunk.js.LICENSE.txt": "/ongWebPage/static/js/2.e99876a9.chunk.js.LICENSE.txt",
+    "static/media/delete-icon.5d614aef.svg": "/ongWebPage/static/media/delete-icon.5d614aef.svg",
+    "static/media/imgTest.ffec8462.jpg": "/ongWebPage/static/media/imgTest.ffec8462.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.760382e1.js",
+    "static/css/2.8d40caf3.chunk.css",
+    "static/js/2.e99876a9.chunk.js",
+    "static/css/main.8a6aab4b.chunk.css",
+    "static/js/main.d56195dc.chunk.js"
+  ]
+}
